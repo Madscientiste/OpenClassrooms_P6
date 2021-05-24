@@ -1,0 +1,10 @@
+@import "../base/mixins.scss";
+
+$container-offset: (2 * $gap);
+
+.container {
+    flex-grow: 1;
+
+    margin-inline: auto;
+    width: min(98%, 80em);
+}

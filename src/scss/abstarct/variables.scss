@@ -1,0 +1,29 @@
+$primary: hsl(252, 67%, 56%);
+
+$accent: hsl(234, 16%, 12%);
+$layer: rgba(mix($accent, white, 65%), 0.1);
+
+// Text colors
+$text: hsl(0, 0%, 82%);
+
+// Font sizes
+$font-thicc: 2rem;
+$font-large: 1.5rem;
+$font-mid: 1.25rem;
+$font-normal: 1rem;
+$font-small: 0.75rem;
+
+// Font Weights
+$weight-light: 300;
+$weight-normal: 400;
+$weight-medium: 500;
+$weight-semibold: 600;
+$weight-bold: 700;
+
+// Miscellaneous
+$easing: ease-out;
+$radius-small: 2px;
+$radius: 4px;
+$radius-large: 6px;
+$radius-rounded: 9999px;
+$speed: 86ms;

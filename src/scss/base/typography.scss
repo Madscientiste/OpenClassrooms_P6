@@ -1,0 +1,13 @@
+@import "../abstarct/all.scss";
+
+.title {
+    font-size: $font-large;
+    font-weight: $weight-bold;
+
+    &::before {
+        content: "\00a0";
+        margin: 0 5px 0 0;
+        background-color: $primary;
+        border-radius: 5px;
+    }
+}

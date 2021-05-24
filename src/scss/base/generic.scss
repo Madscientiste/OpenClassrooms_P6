@@ -1,0 +1,54 @@
+@import "../abstarct/all";
+
+$body-background-color: #1A1B24;
+$body-size: 16px;
+$body-min-width: 300px;
+$body-rendering: optimizeLegibility;
+$body-family: "Nunito", sans-serif;
+$body-overflow-x: hidden;
+$body-overflow-y: scroll;
+
+$body-color: $text;
+$body-font-size: 1em;
+$body-weight: 400;
+$body-line-height: 1.5;
+
+$hr-background-color: black;
+$hr-height: 2px;
+$hr-margin: 1.5rem 0;
+
+$strong-color: grey;
+$strong-weight: 700;
+
+html {
+    background-color: $body-background-color;
+    font-size: $body-size;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    min-width: $body-min-width;
+    overflow-x: $body-overflow-x;
+    overflow-y: $body-overflow-y;
+    text-rendering: $body-rendering;
+    text-size-adjust: 100%;
+}
+
+body {
+    font-family: $body-family;
+    color: $body-color;
+    font-size: $body-font-size;
+    font-weight: $body-weight;
+    line-height: $body-line-height;
+}
+
+strong {
+    color: $strong-color;
+    font-weight: $strong-weight;
+}
+
+hr {
+    background-color: $hr-background-color;
+    border: none;
+    display: block;
+    height: $hr-height;
+    margin: $hr-margin;
+}
