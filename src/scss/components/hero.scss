@@ -33,7 +33,7 @@
             text-overflow: ellipsis;
 
             display: -webkit-box;
-            -webkit-line-clamp: min(4, 100); /* number of lines to show */
+            -webkit-line-clamp: 4; /* number of lines to show */
             -webkit-box-orient: vertical;
 
             color: darken($text, 20%);
@@ -63,12 +63,20 @@
         // from tablet to desktop
         @include tablet() {
             text-align: left;
-
+            .content-desc {
+                -webkit-line-clamp: 12;
+            }
             .content-meta {
                 @include flex-row() {
                     justify-content: space-between;
                     align-items: center;
                 }
+            }
+        }
+
+        @include desktop() {
+            .content-desc {
+                -webkit-line-clamp: 14;
             }
         }
     }
