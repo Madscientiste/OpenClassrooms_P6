@@ -25,15 +25,16 @@
         text-align: center;
 
         .content-name {
-            font-size: 1.2em;
+            font-size: max(min(4vw, 10px), 20px);
             font-weight: $weight-bold;
         }
+
         .content-desc {
             overflow: hidden;
             text-overflow: ellipsis;
 
             display: -webkit-box;
-            -webkit-line-clamp: 4; /* number of lines to show */
+            -webkit-line-clamp: 5; /* number of lines to show */
             -webkit-box-orient: vertical;
 
             color: darken($text, 20%);
@@ -63,9 +64,11 @@
         // from tablet to desktop
         @include tablet() {
             text-align: left;
+
             .content-desc {
-                -webkit-line-clamp: 12;
+                -webkit-line-clamp: 10;
             }
+
             .content-meta {
                 @include flex-row() {
                     justify-content: space-between;
