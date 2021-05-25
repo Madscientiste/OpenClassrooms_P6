@@ -6,12 +6,10 @@
     "format": "prettier --write \"src/**/*.{ts,js}\"",
     "lint": "prettier --check \"src/**/*.{ts,js}\""
   },
-
-  "prettier":{
-  "printWidth": 125,
-  "tabWidth": 4
-},
-
+  "prettier": {
+    "printWidth": 125,
+    "tabWidth": 4
+  },
   "dependencies": {
     "@snowpack/plugin-sass": "^1.4.0",
     "canvas-confetti": "^1.2.0"

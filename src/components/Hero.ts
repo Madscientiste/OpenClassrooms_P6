@@ -1,13 +1,17 @@
 import Element from "../utilities/Element"
 
-type attrType = { image: Element; title: string; description: string; genre: string; rating: string; }
+type attrType = { image: string; title: string; description: string; genre: string; rating: string; }
 
 class HeroComponent {
     element: Element;
 
     constructor({ image, title, description, genre, rating }: attrType) {
         this.element = new Element("div", { classList: ["hero"] }, () => {
-            let heroImage = new Element("div", { classList: ["hero-image"] }, () => [image])
+            let heroImage = new Element("div", { classList: ["hero-image"] }, () => {
+                let heroImage = new Element("img", { src: image, alt: "ayaya" });
+
+                return [heroImage]
+            })
 
             let heroContent = new Element("div", { classList: ["hero-content pl-3"] }, () => {
                 let name = new Element("div", { classList: ["content-name"], innerHTML: title })
@@ -26,7 +30,11 @@ class HeroComponent {
                 return [name, desc, meta]
             })
             return [heroImage, heroContent]
-        }).element
+        })
+    }
+
+    toMarkup() {
+        return this.element.toMarkup()
     }
 }
 
