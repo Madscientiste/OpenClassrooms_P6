@@ -1,0 +1,56 @@
+// Initial Variables
+$black: hsl(230, 17%, 7%);
+$black-bis: hsl(230, 17%, 14%);
+
+$grey-darker: hsl(230, 17%, 21%);
+$grey-dark: hsl(230, 17%, 29%);
+$grey: hsl(230, 17%, 48%);
+$grey-light: hsl(230, 17%, 71%);
+$grey-lighter: hsl(230, 17%, 86%);
+$grey-lightest: hsl(230, 17%, 93%);
+
+$white-ter: hsl(230, 17%, 96%);
+$white-bis: hsl(230, 17%, 98%);
+$white: hsl(230, 17%, 100%);
+
+$purple: hsl(271, 100%, 71%);
+$orange: hsl(14, 100%, 53%);
+$yellow: hsl(44, 86%, 57%);
+$green: hsl(153, 53%, 53%);
+$cyan: hsl(207, 61%, 53%);
+$blue: hsl(229, 53%, 53%);
+$red: hsl(348, 86%, 61%);
+
+// Font sizes
+$font-large: 1.5rem;
+$font-mid: 1.25rem;
+$font-normal: 1rem;
+$font-small: 0.75rem;
+
+// Font Weights
+$weight-light: 300;
+$weight-normal: 400;
+$weight-medium: 500;
+$weight-semibold: 600;
+$weight-bold: 700;
+
+// Miscellaneous
+$easing: ease-out;
+$radius-small: 2px;
+$radius: 4px;
+$radius-large: 6px;
+$radius-rounded: 9999px;
+$speed: 86ms;
+
+// Derived Variables
+$primary: $blue;
+
+$info: $cyan;
+$success: $green;
+$warning: $yellow;
+$danger: $red;
+
+$light: $grey-lightest;
+$dark: $black;
+
+$text: $light;
