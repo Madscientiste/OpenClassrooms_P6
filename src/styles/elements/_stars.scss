@@ -1,0 +1,39 @@
+@use "../abstract/variables" as *;
+
+rating-stars {
+    display: flex;
+    justify-items: center;
+
+    .stars-outer {
+        position: relative;
+        display: inline-block;
+
+        &::before {
+            content: "\f005 \f005 \f005 \f005 \f005";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            color: $black-bis;
+        }
+
+        .stars-inner {
+            position: absolute;
+            top: 0;
+            left: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0;
+
+            &::before {
+                content: "\f005 \f005 \f005 \f005 \f005";
+                font-family: "Font Awesome 5 Free";
+                font-weight: 900;
+                color: $yellow;
+
+                background: -webkit-linear-gradient(lighten($yellow, 10%), darken($yellow, 10%));
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+        }
+    }
+}

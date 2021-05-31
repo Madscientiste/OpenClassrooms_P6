@@ -1,0 +1,81 @@
+@use "../abstract/variables" as *;
+
+$body-background-color: $dark;
+$body-size: 16px;
+$body-min-width: 400px;
+$body-rendering: optimizeLegibility;
+$body-family: "Nunito", sans-serif;
+$body-overflow-x: hidden;
+$body-overflow-y: auto;
+
+$body-color: $text;
+$body-font-size: 1em;
+$body-weight: 400;
+$body-line-height: 1.5;
+
+$hr-background-color: black;
+$hr-height: 2px;
+$hr-margin: 1.5rem 0;
+
+$strong-color: grey;
+$strong-weight: 700;
+
+html {
+    background: linear-gradient(
+        0deg,
+        darken($body-background-color, 5%) 0%,
+        lighten($body-background-color, 2.5%) 100%
+    );
+
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    min-width: $body-min-width;
+    overflow-x: $body-overflow-x;
+    overflow-y: $body-overflow-y;
+    text-rendering: $body-rendering;
+    text-size-adjust: 100%;
+
+    // Srollbar -> Firefox
+    scrollbar-width: none;
+    scrollbar-color: auto;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    height: 5px;
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $primary;
+    border-radius: 1.5px;
+}
+
+body {
+    font-family: $body-family;
+    font-size: $body-font-size;
+    font-weight: $body-weight;
+    line-height: $body-line-height;
+    color: $light;
+}
+
+strong {
+    color: $strong-color;
+    font-weight: $strong-weight;
+}
+
+hr {
+    background-color: $hr-background-color;
+    border: none;
+    display: block;
+    height: $hr-height;
+    margin: $hr-margin;
+}
+
+section {
+    margin-top: 1.5em;
+
+    .section-header {
+        margin-bottom: 1.5em;
+    }
+}
