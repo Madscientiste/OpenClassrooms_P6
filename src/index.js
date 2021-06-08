@@ -4,5 +4,4 @@ import "./styles/main.scss";
 import "./components/Stars";
 import "./components/MoviePoster"
 
-
 if (module.hot) module.hot.accept();
