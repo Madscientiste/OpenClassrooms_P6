@@ -12,10 +12,12 @@
 }
 
 .header {
-    contain: strict;
-    height: 200px;
+    position: relative;
+    contain: content;
 
     img {
+        z-index: -1;
+
         position: absolute;
         width: 100%;
 
@@ -28,6 +30,6 @@
     }
 
     .button {
-        position: absolute;
+        position: relative;
     }
 }
