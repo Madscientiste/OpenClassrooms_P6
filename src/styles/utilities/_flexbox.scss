@@ -1,0 +1,31 @@
+//
+
+//
+
+.is-flex {
+    display: flex;
+
+    &.flex-direction_row {
+        flex-direction: row;
+    }
+
+    &.flex-direction_column {
+        flex-direction: column;
+    }
+
+    &.flex-wrap_nowrap {
+        flex-wrap: nowrap;
+    }
+
+    &.flex-wrap_wrap {
+        flex-wrap: wrap;
+    }
+
+    &.flex-wrap_reverse {
+        flex-wrap: wrap-reverse;
+    }
+
+    &.align-items_end {
+        align-items: end;
+    }
+}

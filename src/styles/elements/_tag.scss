@@ -1,0 +1,26 @@
+@use "../abstract/variables" as *;
+
+$tag-background-color: #14161d;
+$tag-padding: 0.5em;
+
+.tag-list {
+    display: flex;
+    flex-direction: row;
+
+
+    .tag {
+        margin-left: 0.5em;
+    }
+}
+
+.tag {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: $radius;
+    background-color: $tag-background-color;
+    padding: $tag-padding;
+
+    line-height: 100%;
+}

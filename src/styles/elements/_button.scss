@@ -22,9 +22,11 @@ $btn-scheme: (
 
 .button {
     @include unselectable();
+
     border-color: $button-border-color;
     border-width: $button-border-width;
 
+    display: inline-block;
     border-radius: $radius;
     color: $button-color;
     cursor: pointer;
