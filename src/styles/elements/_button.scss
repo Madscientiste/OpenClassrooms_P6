@@ -1,0 +1,66 @@
+@use "../abstract/variables" as *;
+@use "../abstract/mixins" as *;
+
+$button-color: $text;
+$button-background-color: $primary;
+
+$button-border-color: $border;
+$button-border-width: 2px;
+
+$button-padding-vertical: calc(0.5em - #{$button-border-width});
+$button-padding-horizontal: 0.5em;
+
+$btn-scheme: (
+    //        bg clr >-< color
+    "light": ($light, $black-bis),
+    "dark": ($dark, $light),
+    //
+    "primary": ($primary, $light),
+    "warning": ($warning, $black-bis),
+    "danger": ($danger, $text)
+);
+
+.button {
+    @include unselectable();
+    border-color: $button-border-color;
+    border-width: $button-border-width;
+
+    border-radius: $radius;
+    color: $button-color;
+    cursor: pointer;
+
+    padding-bottom: $button-padding-vertical;
+    padding-top: $button-padding-vertical;
+    padding-left: $button-padding-horizontal;
+    padding-right: $button-padding-horizontal;
+
+    justify-content: center;
+    text-align: center;
+    white-space: nowrap;
+
+    &:hover {
+        background-color: transparentize(white, 0.95);
+    }
+
+    &:active {
+        background-color: transparentize($black, 0.75);
+    }
+
+    @each $clr-name, $clr-map in $btn-scheme {
+        &.is-#{$clr-name} {
+            $bg-clr: nth($clr-map, 1);
+            $text-clr: nth($clr-map, 2);
+
+            background-color: $bg-clr;
+            color: $text-clr;
+
+            &:hover {
+                background-color: transparentize($bg-clr, 0.1);
+            }
+
+            &:active {
+                background-color: transparentize($bg-clr, 0.2);
+            }
+        }
+    }
+}

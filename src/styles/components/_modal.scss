@@ -1,0 +1,33 @@
+@use "../abstract/mixins" as *;
+@use "../abstract/variables" as *;
+
+.modal {
+    position: absolute;
+    background-color: $black-bis;
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    contain: strict;
+    height: 200px;
+
+    img {
+        position: absolute;
+        width: 100%;
+
+        transform: translatey(-35%);
+        object-fit: cover;
+
+        /* Add the blur effect */
+        filter: blur(6px);
+        -webkit-filter: blur(6px);
+    }
+
+    .button {
+        position: absolute;
+    }
+}

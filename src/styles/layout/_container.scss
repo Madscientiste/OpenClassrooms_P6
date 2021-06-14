@@ -1,14 +1,14 @@
 @use "../abstract/mixins" as *;
 
-
-
 .container {
+    max-width: 960px;
+
     flex-grow: 1;
+    margin: 0 auto;
+    position: relative;
+    width: auto;
 
-    margin-inline: auto;
-    width: 98%;
-
-    @include tablet {
-        width: min(95%, 80em);
+    &.is-medium {
+        max-width: 680px;
     }
 }

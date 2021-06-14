@@ -18,7 +18,7 @@
     }
 }
 
-// The container horizontal gap, which acts as the offset for breakpoints
+// reponsive mixins
 $gap: 32px;
 
 $tablet: 769px;
@@ -40,4 +40,13 @@ $desktop: 960px + (2 * $gap);
     @media screen and (min-width: $desktop) {
         @content;
     }
+}
+
+// utilities
+@mixin unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
