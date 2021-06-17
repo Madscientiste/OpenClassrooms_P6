@@ -1,63 +1,126 @@
-// Initial Variables
-$black: hsl(230, 17%, 7%);
-$black-bis: hsl(230, 17%, 14%);
+$hue: 230;
+$saturation: 14%;
 
-$grey-darker: hsl(230, 17%, 21%);
-$grey-dark: hsl(230, 17%, 29%);
-$grey: hsl(230, 17%, 48%);
-$grey-light: hsl(230, 17%, 71%);
-$grey-lighter: hsl(230, 17%, 86%);
-$grey-lightest: hsl(230, 17%, 93%);
+// Shades
+$black: hsl($hue, $saturation, 5%);
+$black-bis: hsl($hue, $saturation, 10%);
+$black-ter: hsl($hue, $saturation, 15%);
 
-$white-ter: hsl(230, 17%, 96%);
-$white-bis: hsl(230, 17%, 98%);
-$white: hsl(230, 17%, 100%);
+$grey-darker: hsl($hue, $saturation, 20%);
+$grey-dark: hsl($hue, $saturation, 35%);
+$grey: hsl($hue, $saturation, 50%);
+$grey-light: hsl($hue, $saturation, 60%);
+$grey-lighter: hsl($hue, $saturation, 70%);
+$grey-lightest: hsl($hue, $saturation, 80%);
 
-$purple: hsl(271, 100%, 71%);
+$white-ter: hsl($hue, $saturation, 90%);
+$white-bis: hsl($hue, $saturation, 95%);
+$white: hsl($hue, $saturation, 100%);
+
+// Colors
 $orange: hsl(14, 100%, 53%);
-$yellow: hsl(44, 86%, 57%);
-$green: hsl(153, 53%, 53%);
+$yellow: hsl(49, 86%, 60%);
+$green: hsl(153, 44%, 59%);
+$turquoise: hsl(171, 100%, 41%);
 $cyan: hsl(207, 61%, 53%);
 $blue: hsl(229, 53%, 53%);
+$purple: hsl(253, 82%, 60%);
 $red: hsl(348, 86%, 61%);
 
-// Font sizes
-$font-large: 1.5rem;
-$font-mid: 1.25rem;
-$font-normal: 1rem;
-$font-small: 0.75rem;
+// Typography
+$family-sans-serif: BlinkMacSystemFont, -apple-system, "Nunito", "Roboto", "Oxygen", "Ubuntu", sans-serif;
+$family-monospace: monospace;
 
-// Font Weights
+$size-1: 3rem;
+$size-2: 2.5rem;
+$size-3: 2rem;
+$size-4: 1.5rem;
+$size-5: 1.25rem;
+$size-6: 1rem;
+$size-7: 0.75rem;
+
 $weight-light: 300;
 $weight-normal: 400;
 $weight-medium: 500;
 $weight-semibold: 600;
 $weight-bold: 700;
 
+// Spacing
+$block-spacing: 1.5rem;
+
+// Responsiveness
+$tablet: 769px;
+$desktop: 960px + (2 * 32);
+
 // Miscellaneous
-$easing: ease-out;
 $radius-small: 2px;
 $radius: 4px;
 $radius-large: 6px;
 $radius-rounded: 9999px;
+$easing: ease-out;
 $speed: 86ms;
 
-// Derived Variables
-$primary: $blue;
+// -----------------------------------------------------------------------------------------
+// derived variables
+// -----------------------------------------------------------------------------------------
+
+@use "./functions" as *;
+
+// Main Palette
+$primary: $purple;
+$primary-invert: get_invert_clr($primary);
+$primary-light: get_light_clr($primary);
+$primary-dark: get_dark_clr($primary);
 
 $info: $cyan;
-$success: $green;
-$warning: $yellow;
-$danger: $red;
+$info-invert: get_invert_clr($info);
+$info-light: get_light_clr($info);
+$info-dark: get_dark_clr($info);
 
-$light: $grey-lightest;
-$dark: $black;
-$link: $blue;
+$light: $white-ter;
+$light-invert: get_invert_clr($light);
 
-$text: $light;
-$text-strong: $grey-dark;
+$dark: $black-bis;
+$dark-invert: get_invert_clr($dark);
 
+// Specifics
 $border: $grey-lighter;
 $border-hover: $grey-light;
 $border-light: $grey-lightest;
 $border-light-hover: $grey-light;
+
+$background: $black-bis;
+$link-hover: $grey-light;
+
+// Text colors
+$text: $grey-dark;
+$text-invert: get_invert_clr($text);
+
+$size-small: $size-7;
+$size-normal: $size-6;
+$size-medium: $size-5;
+$size-large: $size-4;
+
+// Lists & Maps
+$sizes: $size-1 $size-2 $size-3 $size-4 $size-5 $size-6 $size-7;
+
+$colors: (
+    "light": (
+        $light,
+        $light-invert,
+    ),
+    "dark": (
+        $dark,
+        $dark-invert,
+    ),
+    "primary": (
+        $primary,
+        $primary-invert,
+    ),
+    "info": (
+        $info,
+        $info-invert,
+        $info-light,
+        $info-dark,
+    ),
+);

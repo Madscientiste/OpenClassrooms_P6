@@ -1,67 +1,52 @@
 @use "../abstract/variables" as *;
 @use "../abstract/mixins" as *;
 
-$button-color: $text;
-$button-background-color: $primary;
+$button-padding-vertical: 0.5em;
+$button-padding-horizontal: 1em;
 
-$button-border-color: $border;
-$button-border-width: 2px;
+$button-background-color: rgba($white, 25%);
 
-$button-padding-vertical: calc(0.5em - #{$button-border-width});
-$button-padding-horizontal: 0.5em;
-
-$btn-scheme: (
-    //        bg clr >-< color
-    "light": ($light, $black-bis),
-    "dark": ($dark, $light),
-    //
-    "primary": ($primary, $light),
-    "warning": ($warning, $black-bis),
-    "danger": ($danger, $text)
-);
-
+button,
 .button {
     @include unselectable();
-
-    border-color: $button-border-color;
-    border-width: $button-border-width;
-
-    display: inline-block;
-    border-radius: $radius;
-    color: $button-color;
+    display: inline-flex;
+    text-align: center;
     cursor: pointer;
+    border: none;
+    white-space: nowrap;
+    justify-content: center;
+
+    border-radius: $radius;
+    background-color: $button-background-color;
+    color: get_invert_clr($button-background-color);
 
     padding-bottom: $button-padding-vertical;
     padding-top: $button-padding-vertical;
     padding-left: $button-padding-horizontal;
     padding-right: $button-padding-horizontal;
 
-    justify-content: center;
-    text-align: center;
-    white-space: nowrap;
-
     &:hover {
-        background-color: transparentize(white, 0.95);
+        background-color: lighten($button-background-color, 2.5%);
     }
 
     &:active {
-        background-color: transparentize($black, 0.75);
+        background-color: lighten($button-background-color, 5%);
     }
 
-    @each $clr-name, $clr-map in $btn-scheme {
-        &.is-#{$clr-name} {
-            $bg-clr: nth($clr-map, 1);
-            $text-clr: nth($clr-map, 2);
+    @each $name, $pair in $colors {
+        $color: nth($pair, 1);
+        $color-invert: nth($pair, 2);
 
-            background-color: $bg-clr;
-            color: $text-clr;
+        &.is-#{$name} {
+            background-color: $color;
+            color: $color-invert;
+            border-color: transparent;
 
             &:hover {
-                background-color: transparentize($bg-clr, 0.1);
+                background-color: darken($color, 2.5%);
             }
-
             &:active {
-                background-color: transparentize($bg-clr, 0.2);
+                background-color: darken($color, 5%);
             }
         }
     }

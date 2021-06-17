@@ -1,24 +1,32 @@
 @use "../abstract/variables" as *;
+@use "../abstract/mixins" as *;
 
-$body-background-color: $dark;
+// Typography
+$body-background-color: $background;
+
 $body-size: 16px;
 $body-min-width: 400px;
 $body-rendering: optimizeLegibility;
-$body-family: "Nunito", sans-serif;
+$body-family: $family-sans-serif;
 $body-overflow-x: hidden;
-$body-overflow-y: auto;
+$body-overflow-y: scroll;
 
 $body-color: $text;
 $body-font-size: 1em;
-$body-weight: 400;
+$body-weight: $weight-normal;
 $body-line-height: 1.5;
 
-$hr-background-color: black;
+$small-font-size: 0.875em;
+
+$hr-background-color: $background;
 $hr-height: 2px;
 $hr-margin: 1.5rem 0;
 
-$strong-color: grey;
-$strong-weight: 700;
+$strong-color: $text;
+$strong-weight: $weight-bold;
+
+$section-padding-top: $size-7;
+$section-padding-bottom: $size-7;
 
 html {
     background: linear-gradient(
@@ -73,9 +81,6 @@ hr {
 }
 
 section {
-    margin-top: 1.5em;
-
-    .section-header {
-        margin-bottom: 1.5em;
-    }
+    margin-top: $section-padding-top;
+    margin-bottom: $section-padding-bottom;
 }
