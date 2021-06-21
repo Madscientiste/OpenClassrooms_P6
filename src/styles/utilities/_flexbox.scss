@@ -28,4 +28,12 @@
     &.align-items_end {
         align-items: end;
     }
+
+    .flex-basis_half {
+        flex-basis: 50%;
+    }
+
+    .flex-basis_full {
+        flex-basis: 100%;
+    }
 }

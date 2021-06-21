@@ -3,38 +3,29 @@
 
 .modal {
     position: absolute;
-    background-color: $black-bis;
+    display: none;
 
-    width: 100%;
+    overflow: hidden;
 
-    display: flex;
-    flex-direction: column;
+    left: 0;
+    right: 0;
 
     .modal-content {
-        height: 100%;
-        width: 100%;
-    }
-}
-
-.header {
-    contain: content;
-    position: relative;
-    background-color: $dark;
-
-    .banner {
-        img {
-            pointer-events: none;
-            z-index: -1;
-
-            position: absolute;
-            width: 100%;
-
-            transform: translatey(-35%);
-            object-fit: cover;
-
-            /* Add the blur effect */
-            filter: blur(6px);
-            -webkit-filter: blur(6px);
+        .modal-header {
         }
+
+        .modal-body {
+            background-color: $black-ter;
+            border-bottom-right-radius: $radius;
+            border-bottom-left-radius: $radius;
+        }
+
+        .modal-body ~ .modal-body {
+            background-color: rgba($dark, 25%);
+        }
+
+        // .modal-footer {
+
+        // }
     }
 }

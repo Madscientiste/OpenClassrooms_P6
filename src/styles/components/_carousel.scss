@@ -1,0 +1,42 @@
+@use "../abstract/variables" as *;
+@use "../abstract/mixins" as *;
+
+$carousel-item-per-row: 3.5;
+
+.carousel {
+    position: relative;
+    height: 500px;
+    width: 100%;
+
+    .carousel-title {
+        font-weight: $weight-semibold;
+        font-size: $size-medium;
+
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+
+    .carousel-controller {
+        margin-bottom: 0.5em;
+
+        width: 100%;
+
+        display: flex;
+        z-index: 1;
+        justify-content: flex-end;
+    }
+
+    .carousel-body {
+        width: 100%;
+
+        display: flex;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+
+        .carousel-item {
+            padding: 0.5em;
+            flex: 0 0 40%;
+        }
+    }
+}

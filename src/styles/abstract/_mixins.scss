@@ -50,3 +50,18 @@ $desktop: 960px + (2 * $gap);
     -ms-user-select: none;
     user-select: none;
 }
+
+@mixin as-background($blur: 6px) {
+    pointer-events: none;
+    z-index: -1;
+
+    position: absolute;
+    width: 100%;
+
+    transform: translatey(-35%);
+    object-fit: cover;
+
+    /* Add the blur effect */
+    filter: blur($blur);
+    -webkit-filter: blur($blur);
+}
