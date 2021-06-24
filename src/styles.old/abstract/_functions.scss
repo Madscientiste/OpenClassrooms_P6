@@ -3,13 +3,13 @@
 @use "sass:color";
 
 @function clr_luminance($color) {
-	@if type-of($color) != 'color' {
+	@if type-of($color) != "color" {
 		@return 0.55;
 	}
 	$color-rgb: (
-		'red': red($color),
-		'green': green($color),
-		'blue': blue($color),
+		"red": red($color),
+		"green": green($color),
+		"blue": blue($color),
 	);
 	@each $name, $value in $color-rgb {
 		$adjusted: 0;
@@ -28,7 +28,8 @@
 			)
 		);
 	}
-	@return (map.get($color-rgb, 'red') * 0.2126) + (map.get($color-rgb, 'green') * 0.7152) + (map.get($color-rgb, 'blue') * 0.0722);
+	@return (map.get($color-rgb, "red") * 0.2126) + (map.get($color-rgb, "green") * 0.7152) +
+		(map.get($color-rgb, "blue") * 0.0722);
 }
 
 @function get_invert_clr($color) {
@@ -40,7 +41,7 @@
 }
 
 @function get_light_clr($color) {
-	@if type-of($color) == 'color' {
+	@if type-of($color) == "color" {
 		$l: 96%;
 		@if lightness($color) > 96% {
 			$l: lightness($color);
@@ -51,7 +52,7 @@
 }
 
 @function get_dark_clr($color) {
-	@if type-of($color) == 'color' {
+	@if type-of($color) == "color" {
 		$base-l: 29%;
 		$luminance: clr_luminance($color);
 		$luminance-delta: (0.53 - $luminance);

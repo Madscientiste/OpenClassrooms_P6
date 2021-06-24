@@ -1,0 +1,67 @@
+@use "./variables" as *;
+
+// Typography
+@mixin text-decorator($width: 60px, $height: 10px) {
+    &::after {
+        background: linear-gradient(90deg, $primary 0%, lighten($primary, 10%) 100%);
+        border-radius: 2.5px;
+
+        content: "\000a0";
+        position: absolute;
+        width: $width;
+        height: $height;
+
+        left: 0;
+        bottom: 0;
+
+        margin-bottom: -8px;
+    }
+}
+
+// reponsive mixins
+$gap: 32px;
+
+$tablet: 769px;
+$desktop: 960px + (2 * $gap);
+
+@mixin mobile {
+    @media screen and (max-width: $tablet - 1px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (min-width: $tablet) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media screen and (min-width: $desktop) {
+        @content;
+    }
+}
+
+// utilities
+@mixin unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@mixin as-background($blur: 6px) {
+    pointer-events: none;
+    z-index: -1;
+
+    position: absolute;
+    width: 100%;
+
+    transform: translatey(-35%);
+    object-fit: cover;
+
+    /* Add the blur effect */
+    filter: blur($blur);
+    -webkit-filter: blur($blur);
+}

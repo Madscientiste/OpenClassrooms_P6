@@ -15,213 +15,141 @@
 </head>
 
 <body>
-    <div class="modal">
-        <div class="modal-content container">
-            <div class="modal-header">
-                <button onclick="close_modal(this)" class="is-dark m-2">
-                    <div class="icon">
-                        <i class="fas fa-arrow-left"></i>
-                    </div>
-                </button>
-            </div>
-
-            <div class="modal-body">
-                <div class="banner">
-                    <img src="https://cdn.myanimelist.net/images/anime/3/50317.jpg" alt="ayaya.png" />
-                </div>
-
-                <div class="container is-medium p-2 is-flex flex-direction_row flex-wrap_wrap align-items_end">
-                    <div style="margin-top: -150px; max-width: 200px; min-width: 120px; flex: 0 1 25%">
-                        <div class="image is-5by7">
-                            <img class="has-rounded-edges" src="https://cdn.myanimelist.net/images/anime/3/50317.jpg"
-                                alt="ayaya.png" />
-                        </div>
-                    </div>
-
-                    <div style="flex: 1;" class="tags">
-                        <div class="tag">
-                            <div class="icon mr-1"><i class="fas fa-clock"></i></div>
-                            <span>1h30</span>
-                        </div>
-
-                        <div style="flex-grow: 1;" class="tag">
-                            9.10
-                        </div>
-                    </div>
-
-                    <div style="flex: 100%;" class="title my-2">Steins;Gate: Fuka Ryouiki no Déjà vu</div>
-                </div>
-            </div>
-
-
-            <div class="modal-body">
-                <div class="container is-medium p-2">
-                    <section>
-                        <h3>Synopsis</h3>
-                        <p class="text">
-                            After a year in America, Kurisu Makise returns to Akihabara and reunites with Rintarou
-                            Okabe. However, their reunion is
-                            cut short when Okabe begins to experience recurring flashes of other timelines as the
-                            consequences of his time traveling
-                            start to manifest. These side effects eventually culminate in Okabe suddenly vanishing from
-                            the world, and only the
-                            startled Kurisu has any memory of his existence. In the midst of despair, Kurisu is faced
-                            with a truly arduous choice
-                            that will test both her duty as a scientist and her loyalty as a friend: follow Okabe's
-                            advice and stay away from
-                            traveling through time to avoid the potential consequences it may have on the world lines,
-                            or ignore it to rescue the
-                            person that she cherishes most. Regardless of her decision, the path she chooses is one that
-                            will affect the past, the
-                            present, and the future.
-                        </p>
-                    </section>
-
-                    <div class="is-flex flex-direction_row flex-basis_half flex-wrap_wrap">
-                        <section class="flex-basis_full">
-                            <h3>Genres</h3>
-                            <div class="tags">
-                                <div class="tag">AYAYA</div>
-                                <div class="tag">AYAYA</div>
-                                <div class="tag">AYAYA</div>
-                                <div class="tag">AYAYA</div>
-                                <div class="tag">AYAYA</div>
-                            </div>
-                        </section>
-
-                        <section class="flex-basis_half">
-                            <h3>Writer(s)</h3>
-                            <div class="tags">
-                                <div class="tag">AYAYA</div>
-                                <div class="tag">AYAYA</div>
-                                <div class="tag">AYAYA</div>
-                                <div class="tag">AYAYA</div>
-                            </div>
-                        </section>
-
-                        <section class="flex-basis_full">
-                            <h3>Actor</h3>
-                            <div class="tags">
-                                <div class="tag">AYAYA</div>
-                            </div>
-                        </section>
-
-                        <section class="flex-basis_half">
-                            <h3>Date Published</h3>
-                            <div class="tags">
-                                <div class="tag">AYAYA</div>
-                            </div>
-                        </section>
-
-                        <section class="flex-basis_half">
-                            <h3>Rated</h3>
-                            <div class="tags">
-                                <div class="tag">AYAYA</div>
-                            </div>
-                        </section>
-                    </div>
-                </div>
-            </div>
+    <div id="root" class="container">
+        <div class="loader">
+            Loading
         </div>
-    </div>
 
-    <div class="header">
-        <div class="header-center">
-            <h2>Just Stream It</h2>
-        </div>
-    </div>
 
-    <div class="container">
-        <div class="hero">
-            <div class="hero-background">
-                <div class="image is-5by7">
-                    <img src="https://cdn.myanimelist.net/images/anime/3/50317.jpg" alt="ayaya.png" />
-                </div>
-            </div>
+        <section>
+            <h2>Top Rated Movie</h2>
 
-            <div class="hero-body">
-                <div class="container is-medium p-2 is-flex flex-direction_row flex-wrap_wrap align-items_end">
-                    <div class="movie-card">
-                        <div class="card-cover">
-                            <div class="image is-5by7">
-                                <img class="has-rounded-edges"
-                                    src="https://cdn.myanimelist.net/images/anime/3/50317.jpg" alt="ayaya.png" />
+            <div class="section-body">
+                <div class="hero">
+                    <div class="hero-banner">
+                        <div class="banner-wrapper">
+                            <div class="banner-image"
+                                style='background-image: url("https://cdn.myanimelist.net/images/anime/1252/115539.jpg");'>
                             </div>
-
-                            <div class="movie-title">Steins;Gate: Fuka Ryouiki no Déjà vu</div>
-                        </div>
-
-                        <div class="movie-summary">
-                            Ittan Pillai, the police station head finds himself encapsulated in a
-                            case of theft which leads him and the others
-                            through a series of chained events throwing the case into a spiral.
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <div class="container">
-        <div class="p-3">
-            <div class="carousel">
-                <div class="header">
-                    <div class="header-left">
-                        <h3>Just Stream It</h3>
-                    </div>
-                    <div class="header-right">
-                        <div class="carousel-controller">
-                            <button class="is-light">
-                                <div class="icon">
-                                    <i class="fas fa-chevron-left"></i>
+                    <div class="hero-body">
+                        <div class="movie">
+                            <div class="movie-cover">
+                                <div class="image is-5by7">
+                                    <img src="https://cdn.myanimelist.net/images/anime/1252/115539.jpg">
                                 </div>
-                            </button>
+                            </div>
 
-                            <button class="is-light">
-                                <div class="icon">
-                                    <i class="fas fa-chevron-right"></i>
+                            <div class="wrapper">
+                                <p class="movie-description">
+                                    Kobayashi-san Chi no Maid Dragon follows the daily life of Kobayashi, her dragon
+                                    maid Tooru, and other dragons
+                                    as they move past their differences to grow closer together.
+                                </p>
+
+                                <div>
+                                    <button class="button is-info is-light has-icon-right">
+                                        <span>More info</span>
+                                        <span class="icon">
+                                            <i class="fas fa-info-circle"></i>
+                                        </span>
+                                    </button>
                                 </div>
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                            </div>
 
-                <div class="carousel-body">
-                    <div class="carousel-item">
-                        <div class="image is-5by7">
-                            <img class="has-rounded-edges" src="https://cdn.myanimelist.net/images/anime/3/50317.jpg"
-                                alt="ayaya.png" />
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="image is-5by7">
-                            <img class="has-rounded-edges" src="https://cdn.myanimelist.net/images/anime/3/50317.jpg"
-                                alt="ayaya.png" />
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="image is-5by7">
-                            <img class="has-rounded-edges" src="https://cdn.myanimelist.net/images/anime/3/50317.jpg"
-                                alt="ayaya.png" />
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="image is-5by7">
-                            <img class="has-rounded-edges" src="https://cdn.myanimelist.net/images/anime/3/50317.jpg"
-                                alt="ayaya.png" />
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="image is-5by7">
-                            <img class="has-rounded-edges" src="https://cdn.myanimelist.net/images/anime/3/50317.jpg"
-                                alt="ayaya.png" />
+                            <div class="movie-name">Kobayashi-san Chi no Maid Dragon S</div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    </section>
+        </section>
+
+        
+
+        <!-- <section>
+            <h3>Best Rated Movies</h3>
+
+            <div class="section-body">
+                <div class="carousel">
+                    <div class="carousel-controller">
+                        <button class="carousel-button">
+                            <div class="icon">
+                                <i class="fas fa-chevron-left"></i>
+                            </div>
+                        </button>
+
+                        <button class="carousel-button">
+                            <div class="icon">
+                                <i class="fas fa-chevron-right"></i>
+                            </div>
+                        </button>
+                    </div>
+
+                    <div class="carousel-body">
+                        <div class="body-wrapper">
+                            <div class="carousel-item">
+                                <div class="image is-5by7">
+                                    <img src="https://cdn.myanimelist.net/images/anime/1252/115539.jpg">
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="image is-5by7">
+                                    <img src="https://cdn.myanimelist.net/images/anime/1283/113368.jpg">
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="image is-5by7">
+                                    <img src="https://cdn.myanimelist.net/images/anime/1236/113727.jpg">
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="image is-5by7">
+                                    <img src="https://cdn.myanimelist.net/images/anime/1068/111129.jpg">
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="image is-5by7">
+                                    <img src="https://cdn.myanimelist.net/images/anime/1630/103417.jpg">
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="image is-5by7">
+                                    <img src="https://cdn.myanimelist.net/images/anime/1523/108380.jpg">
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="image is-5by7">
+                                    <img src="https://cdn.myanimelist.net/images/anime/1730/101329.jpg">
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="image is-5by7">
+                                    <img src="https://cdn.myanimelist.net/images/anime/3/50317.jpg" />
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="image is-5by7">
+                                    <img src="https://cdn.myanimelist.net/images/anime/1013/113747.jpg">
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="image is-5by7">
+                                    <img src="https://cdn.myanimelist.net/images/manga/1/231307.jpg">
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="image is-5by7">
+                                    <img src="https://cdn.myanimelist.net/images/manga/2/201572.jpg">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+     -->
     </div>
 </body>
 

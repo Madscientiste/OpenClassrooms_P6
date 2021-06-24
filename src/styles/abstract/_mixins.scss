@@ -1,12 +1,14 @@
 @use "./variables" as *;
 
-// Typography
-@mixin text-decorator($width: 60px, $height: 10px) {
-    &::after {
-        background: linear-gradient(90deg, $primary 0%, lighten($primary, 10%) 100%);
-        border-radius: 2.5px;
+// Stlying
+@mixin text-decorator($width: 60px, $height: 10px, $clr: $primary) {
+    margin-bottom: $height * 2;
 
-        content: "\000a0";
+    &::after {
+        background: linear-gradient(90deg, $clr 0%, lighten($clr, 10%) 100%);
+        border-radius: 1.5px;
+
+        content: '\000a0';
         position: absolute;
         width: $width;
         height: $height;
@@ -21,11 +23,12 @@
 // reponsive mixins
 $gap: 32px;
 
+$mobile: 400px;
 $tablet: 769px;
 $desktop: 960px + (2 * $gap);
 
 @mixin mobile {
-    @media screen and (max-width: $tablet - 1px) {
+    @media screen and (max-width: $mobile) {
         @content;
     }
 }
@@ -40,28 +43,4 @@ $desktop: 960px + (2 * $gap);
     @media screen and (min-width: $desktop) {
         @content;
     }
-}
-
-// utilities
-@mixin unselectable {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-@mixin as-background($blur: 6px) {
-    pointer-events: none;
-    z-index: -1;
-
-    position: absolute;
-    width: 100%;
-
-    transform: translatey(-35%);
-    object-fit: cover;
-
-    /* Add the blur effect */
-    filter: blur($blur);
-    -webkit-filter: blur($blur);
 }

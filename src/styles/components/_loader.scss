@@ -1,0 +1,19 @@
+@use "../abstract/variables" as *;
+
+.loader {
+    z-index: 20;
+    background-color: $dark;
+
+    position: fixed;
+    width: 100%;
+    height: 100%;
+
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+}

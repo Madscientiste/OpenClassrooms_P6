@@ -1,86 +1,56 @@
 @use "../abstract/variables" as *;
-@use "../abstract/mixins" as *;
-
-// Typography
-$body-background-color: $background;
-
-$body-size: 16px;
-$body-min-width: 400px;
-$body-rendering: optimizeLegibility;
-$body-family: $family-sans-serif;
-$body-overflow-x: hidden;
-$body-overflow-y: scroll;
-
-$body-color: $text;
-$body-font-size: 1em;
-$body-weight: $weight-normal;
-$body-line-height: 1.5;
-
-$small-font-size: 0.875em;
-
-$hr-background-color: $background;
-$hr-height: 2px;
-$hr-margin: 1.5rem 0;
-
-$strong-color: $text;
-$strong-weight: $weight-bold;
-
-$section-padding-top: $size-7;
-$section-padding-bottom: $size-7;
 
 html {
-    background: linear-gradient(
-        0deg,
-        darken($body-background-color, 5%) 0%,
-        lighten($body-background-color, 2.5%) 100%
-    );
+    min-width: 350px;
 
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    min-width: $body-min-width;
-    overflow-x: $body-overflow-x;
-    overflow-y: $body-overflow-y;
-    text-rendering: $body-rendering;
+
+    overflow-x: hidden;
+    overflow-y: scroll;
+
+    text-rendering: optimizeSpeed;
     text-size-adjust: 100%;
 
-    // Srollbar -> Firefox
-    scrollbar-width: none;
-    scrollbar-color: auto;
+    min-height: 100%;
+
+    scrollbar-color: dark;
+    scroll-behavior: smooth;
 }
 
 ::-webkit-scrollbar {
-    width: 0;
-    height: 5px;
+    width: 5px;
+    height: 7px;
+}
+
+::-webkit-scrollbar-track {
     background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: $primary;
-    border-radius: 1.5px;
+    background-color: $grey-dark;
+    border-radius: 2px;
 }
 
 body {
-    font-family: $body-family;
-    font-size: $body-font-size;
-    font-weight: $body-weight;
-    line-height: $body-line-height;
-    color: $light;
-}
+    background: linear-gradient(0deg, darken($background, 5%) 0%, lighten($background, 2.5%) 100%);
 
-strong {
-    color: $strong-color;
-    font-weight: $strong-weight;
-}
+    font-family: BlinkMacSystemFont, -apple-system, 'Nunito', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+    font-weight: $weight-normal;
+    font-size: 16px;
 
-hr {
-    background-color: $hr-background-color;
-    border: none;
-    display: block;
-    height: $hr-height;
-    margin: $hr-margin;
+    line-height: 1.5;
+    color: $text-color;
+
+    scrollbar-color: $primary $black-bis;
+    scrollbar-width: thin;
 }
 
 section {
-    margin-top: $section-padding-top;
-    margin-bottom: $section-padding-bottom;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+img {
+    border-radius: 5px;
 }

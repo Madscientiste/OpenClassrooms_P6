@@ -1,0 +1,25 @@
+@use "../abstract/variables" as *;
+@use "../abstract/mixins" as *;
+
+.movie {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .movie-cover {
+        min-width: 100px;
+        max-width: 200px;
+    }
+
+    .movie-name {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+
+        font-weight: $weight-bold;
+        font-size: $size-5;
+
+        @include mobile {
+            font-size: $size-6;
+        }
+    }
+}

@@ -1,0 +1,54 @@
+@use "../abstract/variables" as *;
+@use "../abstract/functions" as *;
+
+$button-background-color: rgba($dark, 50%);
+
+.button {
+    display: flex;
+    align-items: center;
+
+    background-color: $button-background-color;
+    color: get_invert_clr($button-background-color);
+
+    width: 10rem;
+
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    // coloring
+    @each $clr-name, $pair in $colors {
+        $color: nth($pair, 1);
+        $clr-invert: nth($pair, 2);
+
+        &.is-#{$clr-name} {
+            background-color: $color;
+            color: $clr-invert;
+
+            @if length($pair) >= 4 {
+                $clr-light: nth($pair, 3);
+                $clr-dark: nth($pair, 4);
+
+                &.is-light {
+                    background-color: $clr-light;
+                    color: $clr-dark;  
+                }
+            }
+        }
+    }
+
+    &.has-icon-right {
+        :first-child {
+            flex: 1 1 100%;
+        }
+        :last-child {
+            flex: 1 1;
+        }
+    }
+}
