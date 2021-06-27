@@ -44,11 +44,11 @@
         padding: 1rem;
 
         .movie-cover {
-            flex: 1 1 25%;
+            flex: 1 1;
         }
 
         .wrapper {
-            flex: 1 1 70%;
+            flex: 1 1 25%;
             padding-left: 0.5rem;
             padding-right: 0.5rem;
 
@@ -72,8 +72,9 @@
                 overflow: hidden;
             }
 
-            .button {
+            .buttons {
                 font-weight: $weight-bold;
+
             }
         }
 

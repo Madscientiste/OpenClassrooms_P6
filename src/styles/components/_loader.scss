@@ -1,5 +1,19 @@
 @use "../abstract/variables" as *;
 
+@keyframes loader {
+    0% {
+        transform: translateX(-256px);
+    }
+
+    50% {
+        transform: translateX(0px);
+    }
+
+    100% {
+        transform: translateX(256px);
+    }
+}
+
 .loader {
     z-index: 20;
     background-color: $dark;
@@ -13,7 +27,42 @@
     top: 0%;
     bottom: 0%;
 
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
+
+    font-weight: $weight-bold;
+    font-size: $size-3;
+
+    &::before {
+        position: absolute;
+        background: lighten($primary, 10%);
+        border-radius: 2.5px;
+        content: '\000a0';
+
+        width: 256px;
+        height: 8px;
+
+        top: 60%;
+    }
+
+    &::after {
+        position: absolute;
+        background: $dark;
+        border-radius: 1px;
+        content: '\000a0';
+
+        width: 128px;
+        height: 8px;
+
+        transform: translateX(-64px);
+
+        top: 60%;
+
+        animation-name: loader;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+        animation-direction: foward;
+        animation-timing-function: linear;
+    }
 }

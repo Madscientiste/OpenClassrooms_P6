@@ -21,10 +21,10 @@ $white: hsl($hue, $saturation, 100%);
 $turquoise: hsl(171, 100%, 41%);
 $purple: hsl(253, 76%, 53%);
 $orange: hsl(14, 100%, 53%);
-$yellow: hsl(49, 86%, 60%);
+$yellow: hsl(49, 65%, 49%);
 $green: hsl(153, 44%, 59%);
-$cyan: hsl(207, 61%, 53%);
-$blue: hsl(229, 53%, 53%);
+$cyan: hsl(207, 61%, 46%);
+$blue: hsl(229, 59%, 56%);
 $red: hsl(348, 86%, 61%);
 
 // Typography
@@ -57,6 +57,11 @@ $info: $cyan;
 $info-invert: get_invert_clr($info);
 $info-light: get_light_clr($info);
 $info-dark: get_dark_clr($info);
+
+$warning: $yellow;
+$warning-invert: get_invert_clr($yellow);
+$warning-light: get_light_clr($yellow);
+$warning-dark: get_dark_clr($yellow);
 
 $light: $white-ter;
 $light-invert: get_invert_clr($light);
@@ -94,10 +99,16 @@ $colors: (
         $primary-light,
         $primary-dark,
     ),
+    'warning': (
+        $warning,
+        $warning-invert,
+        rgba($dark, 50%),
+        $warning-dark,
+    ),
     'info': (
         $info,
         $info-invert,
-        rgba($dark,50%),
+        rgba($dark, 50%),
         $info-dark,
     ),
 );

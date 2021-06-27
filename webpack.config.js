@@ -24,6 +24,26 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.m?js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env'],
+                        plugins: [
+                            [
+                                "@babel/plugin-transform-react-jsx",
+                                { pragma: "createElement", pragmaFrag: "'fragment'" }
+                            ],
+                            [
+                                "@babel/plugin-transform-runtime"
+                            ]
+                        ]
+
+                    }
+                }
+            },
+            {
                 test: /\.s[ac]ss$/i,
                 use: ["style-loader", "css-loader", "sass-loader"],
             },

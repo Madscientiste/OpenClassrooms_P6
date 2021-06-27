@@ -1,7 +1,16 @@
 @use "../abstract/variables" as *;
 @use "../abstract/functions" as *;
+@use "../abstract/mixins" as *;
 
 $button-background-color: rgba($dark, 50%);
+
+.buttons {
+    display: flex;
+
+    :not(:first-child) {
+        margin-left: 0.5rem;
+    }
+}
 
 .button {
     display: flex;
@@ -12,7 +21,7 @@ $button-background-color: rgba($dark, 50%);
 
     width: 10rem;
 
-    border: none;
+    border: 1px solid $black-bis;
     cursor: pointer;
     border-radius: 4px;
 
@@ -37,7 +46,7 @@ $button-background-color: rgba($dark, 50%);
 
                 &.is-light {
                     background-color: $clr-light;
-                    color: $clr-dark;  
+                    color: $clr-dark;
                 }
             }
         }
@@ -49,6 +58,12 @@ $button-background-color: rgba($dark, 50%);
         }
         :last-child {
             flex: 1 1;
+        }
+    }
+
+    &.hide-mobile {
+        @include mobile {
+            display: none;
         }
     }
 }

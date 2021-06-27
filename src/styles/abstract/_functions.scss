@@ -52,10 +52,10 @@
 
 @function get_dark_clr($color) {
 	@if type-of($color) == 'color' {
-		$base-l: 29%;
+		$base-l: 30%;
 		$luminance: clr_luminance($color);
-		$luminance-delta: (0.53 - $luminance);
-		$target-l: round($base-l + ($luminance-delta * 53));
+		$luminance-delta: (0.80 - $luminance);
+		$target-l: round($base-l + ($luminance-delta * 50));
 
 		@return color.change($color, $lightness: max($base-l, $target-l));
 	}
