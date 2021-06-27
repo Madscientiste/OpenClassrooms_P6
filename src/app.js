@@ -2,40 +2,21 @@ import Loader from "./components/loader"
 import Hero from "./components/hero"
 import Carousel from "./components/Carousel"
 
-// utilities
-import Movie from "./utilities/Movie"
+export default async function app(props) {
+    let state = props.state
 
-// export default function app() {
-//     // let state = props.state
+    if (state.isLoading) return <Loader isLoading={state.isLoading} />
 
-//     // Movie.filterBy("-imdb_score").then(data => {
-//     //     // props.setState({ movies: data, isLoading: false })
-//     // })
+    return (
+        <div className="container" >
+            <Hero movie={state.movies.shift()} />
+            <Carousel header="Top Rated Movies" elements={state.movies} />
 
-//     // if (state.isLoading) return <Loader isLoading={state.isLoading} />
+            {/* The other categories */}
 
-//     return (
-//         <div className="container" >
-
-//             {/* <Hero movie={state.movies.shift()} />
-//             <Carousel header="Top Rated Movies" elements={state.movies} /> */}
-
-//             UwU
-//         </div>
-//     )
-// }
-
-export default class App {
-    render() {
-        return (
-            <div>
-                <Loader isLoading={true} />
-
-            </div>
-        )
-    }
+            {state.categories.map(cat => {
+                return <Carousel header={cat.title} elements={cat.items} />
+            })}
+        </div>
+    )
 }
-
-
-App.prototype.isClassComponent = {}
-

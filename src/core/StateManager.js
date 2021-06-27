@@ -14,10 +14,9 @@ export default class StateManager {
 
     setState(partialState) {
         Object.assign(this.state, partialState)
-
-        console.log(observer)
         observer.publish(STATES_UPDATE, this.state);
 
         return this.state
     }
 }
+

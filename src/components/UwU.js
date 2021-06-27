@@ -1,7 +1,6 @@
 import Component from "../core/component";
 import store from "../core/store";
 
-
 export default class UwU extends Component {
     constructor(onUpdate) {
         super({ store }, onUpdate)
