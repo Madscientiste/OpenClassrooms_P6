@@ -13,7 +13,6 @@ export default async function app(props) {
             <Carousel header="Top Rated Movies" elements={state.movies} />
 
             {/* The other categories */}
-
             {state.categories.map(cat => {
                 return <Carousel header={cat.title} elements={cat.items} />
             })}

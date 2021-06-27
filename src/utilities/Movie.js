@@ -1,5 +1,5 @@
 import axios from "axios"
-import resolver from "../hooks/resolver"
+import resolver from "../functions/resolver"
 
 const instance = axios.create({ baseURL: "http://86.234.148.125:8000/api/v1" })
 
@@ -46,7 +46,7 @@ class Movie {
 }
 
 Movie.filterBy = async function (key, value) {
-    // getting 20 items ~ since each call == 5 items 
+    // getting 10 items ~ since each call == 5 items 
     // would have been better if the API would let me ask more than 5items ... but whatever
     let [data, error] = await resolver(instance.get, ["/titles", { params: { [key]: value } }])
     let [data1, error1] = await resolver(axios.get, [data.next])

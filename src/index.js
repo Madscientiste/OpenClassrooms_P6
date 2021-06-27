@@ -23,7 +23,7 @@ const props = {
 
 function render(props) {
     App(props).then((content) => {
-        window.document.getElementById('root').replaceChildren(content)
+        document.getElementById('root').replaceChildren(content)
     })
 }
 
