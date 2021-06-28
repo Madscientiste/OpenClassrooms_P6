@@ -1,7 +1,6 @@
 import getParent from "../functions/getParent"
 
 export default function Carousel({ header, elements }) {
-    let counter = 0;
     let direction;
 
     let getCurrCarousel = (e) => {
@@ -51,9 +50,12 @@ export default function Carousel({ header, elements }) {
         body.style.transform = `translateX(-${(elmWidthPercent * 2)}%)`;
 
         direction = 1;
-        counter++
     }
 
+    let handleEmptyImage = (e, movie) => {
+        console.warn("Cover of", movie.title, "Couldn't be found")
+        e.target.src = "https://via.placeholder.com/200x280?text=No+Cover"
+    }
 
 
     return (
@@ -82,7 +84,7 @@ export default function Carousel({ header, elements }) {
                                 return (
                                     <div className="carousel-item">
                                         <div className="image is-5by7">
-                                            <img src={movie.image_url} />
+                                            <img onerror={(e) => handleEmptyImage(e, movie)} src={movie.image_url} />
                                         </div>
                                     </div>
                                 )

@@ -50,8 +50,9 @@ Movie.filterBy = async function (key, value) {
     // would have been better if the API would let me ask more than 5items ... but whatever
     let [data, error] = await resolver(instance.get, ["/titles", { params: { [key]: value } }])
     let [data1, error1] = await resolver(axios.get, [data.next])
+    let [data2, error2] = await resolver(axios.get, [data.next])
 
-    const movies = [...data.results, ...data1.results]
+    const movies = [...data.results, ...data1.results, ...data2.results]
 
     if (error) throw Error("Couldn't filter the movies, please check if the server is running or if the url of the api is correct")
 
