@@ -36,13 +36,16 @@
 
         .body-wrapper {
             display: flex;
+
+
             overflow: scroll;
-            
+            transform: translateX(-300px);
+
             transition: all 0.8s;
 
             .carousel-item {
-                max-width: 200px;
-                min-width: 130px;
+                flex-shrink: 0;
+                width: 150px;
 
                 padding: 0.25rem;
             }
