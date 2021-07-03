@@ -23,12 +23,11 @@
 // reponsive mixins
 $gap: 32px;
 
-$mobile: 470px;
 $tablet: 769px;
 $desktop: 960px + (2 * $gap);
 
 @mixin mobile {
-    @media screen and (max-width: $mobile) {
+    @media screen and (max-width: $tablet - 1) {
         @content;
     }
 }

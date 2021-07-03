@@ -7,6 +7,7 @@ import Movie from "./utilities/Movie";
 
 const initialState = {
     isLoading: true,
+    modal: null,
     categories: [],
     movies: []
 }
@@ -28,11 +29,11 @@ function render(props) {
 }
 
 window.onload = async (e) => {
-    let bestMovies = await Movie.filterBy("sort_by", "-imdb_score")
+    let bestMovies = await Movie.filterBy({ sort_by: "-imdb_score" })
 
     let categories = await Promise.all(
         ["Action", "Adventure", "History"].map(async categorie => {
-            let items = await Movie.filterBy("genre", categorie)
+            let items = await Movie.filterBy({ genre: categorie, sort_by: "-imdb_score" })
             return { title: categorie, items }
         }))
 

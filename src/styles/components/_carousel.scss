@@ -1,4 +1,5 @@
 @use "../abstract/mixins" as *;
+@use "../abstract/variables" as *;
 
 .carousel {
     position: relative;
@@ -18,15 +19,27 @@
         transform: translatey(-50%);
 
         .carousel-button {
-            $button-size: 25px;
+            $button-size: 35px;
 
-            display: inline-block;
+            color: $primary;
+            background-color: $dark;
+
+            opacity: 0.9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            border-radius: 5px;
 
             width: $button-size;
-            height: $button-size;
+            height: $button-size * 3;
+
+            vertical-align: middle;
+            text-align: center;
 
             &:hover {
                 cursor: pointer;
+                opacity: 1;
             }
         }
     }
@@ -36,12 +49,8 @@
 
         .body-wrapper {
             display: flex;
-
-
-            overflow: scroll;
-            transform: translateX(-300px);
-
             transition: all 0.8s;
+            overflow: scroll;
 
             .carousel-item {
                 flex-shrink: 0;
@@ -60,6 +69,7 @@
         .carousel-body {
             .body-wrapper {
                 overflow: visible;
+                transform: translateX(-140px);
             }
         }
     }

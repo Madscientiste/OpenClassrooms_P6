@@ -45,14 +45,18 @@ class Movie {
     }
 }
 
-Movie.filterBy = async function (key, value) {
+Movie.filterBy = async function (params) {
     // getting 10 items ~ since each call == 5 items 
     // would have been better if the API would let me ask more than 5items ... but whatever
-    let [data, error] = await resolver(instance.get, ["/titles", { params: { [key]: value } }])
+    let [data, error] = await resolver(instance.get, ["/titles", { params }])
     let [data1, error1] = await resolver(axios.get, [data.next])
     let [data2, error2] = await resolver(axios.get, [data.next])
 
-    const movies = [...data.results, ...data1.results, ...data2.results]
+    let movies = [...data.results, ...data1.results, ...data2.results]
+    const movID = [...new Set(movies.map(m => m.id))]
+
+    //removing duplicates
+    movies = movID.map(id => movies.find((m) => m.id == id))
 
     if (error) throw Error("Couldn't filter the movies, please check if the server is running or if the url of the api is correct")
 

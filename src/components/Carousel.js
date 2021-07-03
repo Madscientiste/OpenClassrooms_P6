@@ -13,20 +13,19 @@ export default function Carousel({ header, elements }) {
 
     let handleTransition = (e) => {
         let { carousel, body, firstItem } = getCurrCarousel(e)
+        let isMobile = window.matchMedia("(max-width: 769px)").matches
 
         if (direction == 1) {
             body.appendChild(body.firstElementChild);
-            body.appendChild(body.firstElementChild);
         } else {
-            body.prepend(body.lastElementChild);
             body.prepend(body.lastElementChild);
         }
 
         let elmWidth = firstItem.getBoundingClientRect().width;
-        let elmWidthPercent = (elmWidth / carousel.getBoundingClientRect().width) * 100;
 
+        // this will only work if the user didn't click the left/right button
         body.style.transition = "none";
-        body.style.transform = `translate(0%)`;
+        body.style.transform = `translate(${isMobile ? 0 : `-${elmWidth * 1}px`})`;
 
         setTimeout(() => {
             body.style.transition = "all 0.8s";
@@ -38,16 +37,14 @@ export default function Carousel({ header, elements }) {
         let { carousel, body, firstItem } = getCurrCarousel(e)
 
         direction = -1;
-        body.style.transform = `translateX(0%)`;
+        body.style.transform = `translateX(0)`;
     }
 
     let handleRight = (e) => {
         let { carousel, body, firstItem } = getCurrCarousel(e)
 
         let elmWidth = firstItem.getBoundingClientRect().width;
-        let elmWidthPercent = (elmWidth / carousel.getBoundingClientRect().width) * 100;
-
-        body.style.transform = `translateX(-${(elmWidthPercent * 2)}%)`;
+        body.style.transform = `translateX(-${elmWidth * 2}px)`;
 
         direction = 1;
     }
