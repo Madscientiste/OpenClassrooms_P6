@@ -1,0 +1,65 @@
+@use "../abstract/variables/" as *;
+@use "../abstract/mixins" as *;
+
+$grid-gap: (
+    's': 0.5em,
+    'm': 1em,
+    'lg': 1.25em,
+    'xl': 1.5em,
+);
+
+.is-grid {
+    display: grid;
+
+    @for $i from 0 through 12 {
+        .span-col-#{$i} {
+            grid-column: span $i + 1;
+        }
+        .span-row-#{$i} {
+            grid-row: span $i + 1;
+        }
+
+        &.cols-#{$i} {
+            grid-template-columns: repeat($i, 1fr);
+        }
+
+        &.rows-#{$i} {
+            grid-template-rows: repeat($i, 1fr);
+        }
+    }
+
+    @each $name, $gap-size in $grid-gap {
+        &.grid-gap-#{$name} {
+            gap: $gap-size;
+        }
+    }
+
+    // responsive behaviour
+    @each $name, $value in $breakpoints {
+        $gap-size: map-get($grid-gap, $name);
+
+        @include breakpoint($name) {
+            @for $i from 0 through 12 {
+                .#{$name}-span-col-#{$i} {
+                    grid-column: span $i + 1;
+                }
+
+                .#{$name}-span-row-#{$i} {
+                    grid-column: span $i + 1;
+                }
+
+                &.#{$name}-cols-#{$i} {
+                    grid-template-columns: repeat($i, 1fr);
+                }
+
+                &.#{$name}-rows-#{$i} {
+                    grid-template-rows: repeat($i, 1fr);
+                }
+            }
+
+            &.#{$name}-grid-gap-#{$name} {
+                gap: $gap-size;
+            }
+        }
+    }
+}

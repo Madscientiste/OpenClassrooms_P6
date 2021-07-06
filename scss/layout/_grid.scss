@@ -1,0 +1,53 @@
+@use "../abstract/mixins" as *;
+@use "../abstract/variables/" as *;
+
+$custom-gap: () !default;
+$grid-gap: (
+    'xs': 0.25em,
+    'sm': 0.5em,
+    'md': 0.75em,
+    'lg': 1em,
+    'xl': 1.25em,
+    'xxl': 1.5em,
+);
+
+.is-grid {
+    display: grid;
+
+    @for $i from 1 through 12 {
+        .span-#{$i} {
+            grid-column: span $i + 1;
+        }
+
+        &.grid-#{$i} {
+            grid-template-columns: repeat($i, 1fr);
+        }
+    }
+
+    @each $name, $gap-size in $grid-gap {
+        &.grid-gap-#{$name} {
+            gap: $gap-size;
+        }
+    }
+
+    // responsive behaviour
+    @each $name, $value in $breakpoints {
+        $gap-size: map-get($grid-gap, $name);
+
+        @include breakpoint($name) {
+            @for $i from 1 through 12 {
+                .#{$name}-span-#{$i} {
+                    grid-column: span $i + 1;
+                }
+
+                &.#{$name}-grid-#{$i} {
+                    grid-template-columns: repeat($i, 1fr);
+                }
+            }
+
+            &.#{$name}-grid-gap-#{$name} {
+                gap: $gap-size;
+            }
+        }
+    }
+}

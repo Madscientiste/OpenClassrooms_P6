@@ -1,69 +1,49 @@
-@use "../abstract/variables" as *;
-@use "../abstract/functions" as *;
-@use "../abstract/mixins" as *;
-
-$button-background-color: rgba($dark, 50%);
-
 .buttons {
     display: flex;
-
-    :not(:first-child) {
-        margin-left: 0.5rem;
+    .button {
+        margin-right: 0.5em;
     }
 }
 
 .button {
-    display: flex;
-    align-items: center;
+    position: relative;
+    display: inline-block;
 
-    background-color: $button-background-color;
-    color: get_invert_clr($button-background-color);
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box; /* Firefox, other Gecko */
+    box-sizing: border-box; /* Opera/IE 8+ */
 
-    width: 10rem;
+    border: 2px solid transparent;
+    border-radius: 5px;
 
-    border: 1px solid $black-bis;
+    padding: 0.5em 1em;
+
+    vertical-align: baseline;
+    text-align: center;
+    text-decoration: none;
     cursor: pointer;
-    border-radius: 4px;
 
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    &.with-icon {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
 
-    padding-left: 1rem;
-    padding-right: 1rem;
+        &.vertical {
+            flex-direction: column;
+        }
 
-    // coloring
-    @each $clr-name, $pair in $colors {
-        $color: nth($pair, 1);
-        $clr-invert: nth($pair, 2);
-
-        &.is-#{$clr-name} {
-            background-color: $color;
-            color: $clr-invert;
-
-            @if length($pair) >= 4 {
-                $clr-light: nth($pair, 3);
-                $clr-dark: nth($pair, 4);
-
-                &.is-light {
-                    background-color: $clr-light;
-                    color: $clr-dark;
-                }
+        &.is-left {
+            flex-direction: row-reverse;
+            .icon {
+                margin-right: 0.5em;
             }
         }
-    }
 
-    &.has-icon-right {
-        :first-child {
-            flex: 1 1 100%;
-        }
-        :last-child {
-            flex: 1 1;
-        }
-    }
-
-    &.hide-mobile {
-        @include mobile {
-            display: none;
+        &.is-right {
+            flex-direction: row;
+            .icon {
+                margin-left: 0.5em;
+            }
         }
     }
 }

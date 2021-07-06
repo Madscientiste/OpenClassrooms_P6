@@ -1,0 +1,334 @@
+@use 'sass:map';
+@use "../functions" as func;
+
+$white: hsl(0, 0%, 100%);
+$black: hsl(0, 0%, 0%);
+
+/// @range colors
+$grey: hsl(210, 11%, 71%) !default;
+$pink: hsl(339, 82%, 67%) !default;
+$red: hsl(354, 70%, 54%) !default;
+$grape: hsl(288, 85%, 67%) !default;
+$violet: hsl(249, 40%, 48%) !default;
+$indigo: hsl(228, 94%, 67%) !default;
+$blue: hsl(216, 98%, 52%) !default;
+$teal: hsl(162, 73%, 46%) !default;
+$green: hsl(152, 74%, 45%) !default;
+$lime: hsl(84, 69%, 51%) !default;
+$orange: hsl(29, 100%, 58%) !default;
+$yellow: hsl(45, 97%, 54%) !default;
+$cyan: rgb(14, 186, 221) !default;
+/// @range
+
+/// @range shades
+$shade-000: 90% !default;
+$shade-100: 70% !default;
+$shade-200: 50% !default;
+$shade-300: 30% !default;
+$shade-400: 10% !default;
+$shade-600: 15% !default;
+$shade-700: 25% !default;
+$shade-800: 35% !default;
+$shade-900: 45% !default;
+/// @range
+
+/// @range gray
+$gray-000: hsl(210, 17%, 98%) !default;
+$gray-100: hsl(210, 17%, 95%) !default;
+$gray-200: hsl(210, 16%, 93%) !default;
+$gray-300: hsl(210, 14%, 89%) !default;
+$gray-400: hsl(210, 14%, 83%) !default;
+$gray-500: $grey;
+$gray-600: hsl(208, 7%, 46%) !default;
+$gray-700: hsl(210, 9%, 31%) !default;
+$gray-800: hsl(210, 10%, 23%) !default;
+$gray-900: hsl(210, 11%, 15%) !default;
+/// @range
+
+/// @range pink
+$pink-000: func.to-white($pink, $shade-000);
+$pink-100: func.to-white($pink, $shade-100);
+$pink-200: func.to-white($pink, $shade-200);
+$pink-300: func.to-white($pink, $shade-300);
+$pink-400: func.to-white($pink, $shade-400);
+$pink-500: $pink;
+$pink-600: func.to-black($pink, $shade-600);
+$pink-700: func.to-black($pink, $shade-700);
+$pink-800: func.to-black($pink, $shade-800);
+$pink-900: func.to-black($pink, $shade-900);
+/// @range
+
+/// @range red
+$red-000: func.to-white($red, $shade-000);
+$red-100: func.to-white($red, $shade-100);
+$red-200: func.to-white($red, $shade-200);
+$red-300: func.to-white($red, $shade-300);
+$red-400: func.to-white($red, $shade-400);
+$red-500: $red;
+$red-600: func.to-black($red, $shade-600);
+$red-700: func.to-black($red, $shade-700);
+$red-800: func.to-black($red, $shade-800);
+$red-900: func.to-black($red, $shade-900);
+/// @range
+
+/// @range grape
+$grape-000: func.to-white($grape, $shade-000);
+$grape-100: func.to-white($grape, $shade-100);
+$grape-200: func.to-white($grape, $shade-200);
+$grape-300: func.to-white($grape, $shade-300);
+$grape-400: func.to-white($grape, $shade-400);
+$grape-500: $grape;
+$grape-600: func.to-black($grape, $shade-600);
+$grape-700: func.to-black($grape, $shade-700);
+$grape-800: func.to-black($grape, $shade-800);
+$grape-900: func.to-black($grape, $shade-900);
+/// @range
+
+/// @range violet
+$violet-000: func.to-white($violet, $shade-000);
+$violet-100: func.to-white($violet, $shade-100);
+$violet-200: func.to-white($violet, $shade-200);
+$violet-300: func.to-white($violet, $shade-300);
+$violet-400: func.to-white($violet, $shade-400);
+$violet-500: $violet;
+$violet-600: func.to-black($violet, $shade-600);
+$violet-700: func.to-black($violet, $shade-700);
+$violet-800: func.to-black($violet, $shade-800);
+$violet-900: func.to-black($violet, $shade-900);
+/// @range
+
+/// @range indigo
+$indigo-000: func.to-white($indigo, $shade-000);
+$indigo-100: func.to-white($indigo, $shade-100);
+$indigo-200: func.to-white($indigo, $shade-200);
+$indigo-300: func.to-white($indigo, $shade-300);
+$indigo-400: func.to-white($indigo, $shade-400);
+$indigo-500: $indigo;
+$indigo-600: func.to-black($indigo, $shade-600);
+$indigo-700: func.to-black($indigo, $shade-700);
+$indigo-800: func.to-black($indigo, $shade-800);
+$indigo-900: func.to-black($indigo, $shade-900);
+/// @range
+
+/// @range blue
+$blue-000: func.to-white($blue, $shade-000);
+$blue-100: func.to-white($blue, $shade-100);
+$blue-200: func.to-white($blue, $shade-200);
+$blue-300: func.to-white($blue, $shade-300);
+$blue-400: func.to-white($blue, $shade-400);
+$blue-500: $blue;
+$blue-600: func.to-black($blue, $shade-600);
+$blue-700: func.to-black($blue, $shade-700);
+$blue-800: func.to-black($blue, $shade-800);
+$blue-900: func.to-black($blue, $shade-900);
+/// @range
+
+/// @range cyan
+$cyan-000: func.to-white($cyan, $shade-000);
+$cyan-100: func.to-white($cyan, $shade-100);
+$cyan-200: func.to-white($cyan, $shade-200);
+$cyan-300: func.to-white($cyan, $shade-300);
+$cyan-400: func.to-white($cyan, $shade-400);
+$cyan-500: $cyan;
+$cyan-600: func.to-black($cyan, $shade-600);
+$cyan-700: func.to-black($cyan, $shade-700);
+$cyan-800: func.to-black($cyan, $shade-800);
+$cyan-900: func.to-black($cyan, $shade-900);
+/// @range
+
+/// @range teal
+$teal-000: func.to-white($teal, $shade-000);
+$teal-100: func.to-white($teal, $shade-100);
+$teal-200: func.to-white($teal, $shade-200);
+$teal-300: func.to-white($teal, $shade-300);
+$teal-400: func.to-white($teal, $shade-400);
+$teal-500: $teal;
+$teal-600: func.to-black($teal, $shade-600);
+$teal-700: func.to-black($teal, $shade-700);
+$teal-800: func.to-black($teal, $shade-800);
+$teal-900: func.to-black($teal, $shade-900);
+/// @range
+
+/// @range green
+$green-000: func.to-white($green, $shade-000);
+$green-100: func.to-white($green, $shade-100);
+$green-200: func.to-white($green, $shade-200);
+$green-300: func.to-white($green, $shade-300);
+$green-400: func.to-white($green, $shade-400);
+$green-500: $green;
+$green-600: func.to-black($green, $shade-600);
+$green-700: func.to-black($green, $shade-700);
+$green-800: func.to-black($green, $shade-800);
+$green-900: func.to-black($green, $shade-900);
+/// @range
+
+/// @range lime
+$lime-000: func.to-white($lime, $shade-000);
+$lime-100: func.to-white($lime, $shade-100);
+$lime-200: func.to-white($lime, $shade-200);
+$lime-300: func.to-white($lime, $shade-300);
+$lime-400: func.to-white($lime, $shade-400);
+$lime-500: $lime;
+$lime-600: func.to-black($lime, $shade-600);
+$lime-700: func.to-black($lime, $shade-700);
+$lime-800: func.to-black($lime, $shade-800);
+$lime-900: func.to-black($lime, $shade-900);
+/// @range
+
+/// @range yellow
+$yellow-000: func.to-white($yellow, $shade-000);
+$yellow-100: func.to-white($yellow, $shade-100);
+$yellow-200: func.to-white($yellow, $shade-200);
+$yellow-300: func.to-white($yellow, $shade-300);
+$yellow-400: func.to-white($yellow, $shade-400);
+$yellow-500: $yellow;
+$yellow-600: func.to-black($yellow, $shade-600);
+$yellow-700: func.to-black($yellow, $shade-700);
+$yellow-800: func.to-black($yellow, $shade-800);
+$yellow-900: func.to-black($yellow, $shade-900);
+/// @range
+
+/// @range orange
+$orange-000: func.to-white($orange, $shade-000);
+$orange-100: func.to-white($orange, $shade-100);
+$orange-200: func.to-white($orange, $shade-200);
+$orange-300: func.to-white($orange, $shade-300);
+$orange-400: func.to-white($orange, $shade-400);
+$orange-500: $orange;
+$orange-600: func.to-black($orange, $shade-600);
+$orange-700: func.to-black($orange, $shade-700);
+$orange-800: func.to-black($orange, $shade-800);
+$orange-900: func.to-black($orange, $shade-900);
+/// @range
+
+$shades-lime: ($lime-000, $lime-100, $lime-200, $lime-300, $lime-400, $lime-500, $lime-600, $lime-700, $lime-800, $lime-900);
+$shades-teal: ($teal-000, $teal-100, $teal-200, $teal-300, $teal-400, $teal-500, $teal-600, $teal-700, $teal-800, $teal-900);
+$shades-cyan: ($cyan-000, $cyan-100, $cyan-200, $cyan-300, $cyan-400, $cyan-500, $cyan-600, $cyan-700, $cyan-800, $cyan-900);
+$shades-gray: ($gray-000, $gray-100, $gray-200, $gray-300, $gray-400, $gray-500, $gray-600, $gray-700, $gray-800, $gray-900);
+$shades-pink: ($pink-000, $pink-100, $pink-200, $pink-300, $pink-400, $pink-500, $pink-600, $pink-700, $pink-800, $pink-900);
+$shades-blue: ($blue-000, $blue-100, $blue-200, $blue-300, $blue-400, $blue-500, $blue-600, $blue-700, $blue-800, $blue-900);
+$shades-grape: ($grape-000, $grape-100, $grape-200, $grape-300, $grape-400, $grape-500, $grape-600, $grape-700, $grape-800, $grape-900);
+$shades-orange: ($orange-000, $orange-100, $orange-200, $orange-300, $orange-400, $orange-500, $orange-600, $orange-700, $orange-800, $orange-900);
+$shades-yellow: ($yellow-000, $yellow-100, $yellow-200, $yellow-300, $yellow-400, $yellow-500, $yellow-600, $yellow-700, $yellow-800, $yellow-900);
+$shades-violet: ($violet-000, $violet-100, $violet-200, $violet-300, $violet-400, $violet-500, $violet-600, $violet-700, $violet-800, $violet-900);
+$shades-indigo: ($indigo-000, $indigo-100, $indigo-200, $indigo-300, $indigo-400, $indigo-500, $indigo-600, $indigo-700, $indigo-800, $indigo-900);
+$shades-green: ($green-000, $green-100, $green-200, $green-300, $green-400, $green-500, $green-600, $green-700, $green-800, $green-900);
+$shades-red: ($red-000, $red-100, $red-200, $red-300, $red-400, $red-500, $red-600, $red-700, $red-800, $red-900);
+
+$colors: (
+	'gray': $shades-gray,
+	'pink': $shades-pink,
+	'grape': $shades-grape,
+	'violet': $shades-violet,
+	'indigo': $shades-indigo,
+	'blue': $shades-blue,
+	'teal': $shades-teal,
+	'green': $shades-green,
+	'lime': $shades-lime,
+	'red': $shades-red,
+	'orange': $shades-orange,
+	'yellow': $shades-yellow,
+	'cyan': $shades-cyan,
+);
+
+// main
+$primary: $violet-500 !default;
+$primary-light: $violet-100 !default;
+
+$secondary: $cyan-400 !default;
+$secondary-light: $cyan-100 !default;
+
+// Feedback
+$success: $green-500 !default;
+$success-light: $green-100 !default;
+
+$danger: $red-400 !default;
+$danger-light: $red-100 !default;
+
+$warning: $orange-400 !default;
+$warning-light: $orange-100 !default;
+
+$info: $cyan-500 !default;
+$info-light: $cyan-100 !default;
+
+// light / dark
+$light: hsl(0, 0%, 97%) !default;
+$dark: hsl(280, 7%, 9%) !default;
+
+$custom-palette: () !default;
+$main-palette: (
+	'primary': (
+		'default': (
+			$primary,
+			func.invert($primary),
+		),
+		'light': (
+			$primary-light,
+			func.invert($primary-light, $primary),
+		),
+	),
+	'secondary': (
+		'default': (
+			$secondary,
+			func.invert($secondary),
+		),
+		'light': (
+			$secondary-light,
+			func.invert($secondary-light, $secondary),
+		),
+	),
+	'success': (
+		'default': (
+			$success,
+			func.invert($success),
+		),
+		'light': (
+			$success-light,
+			func.invert($success-light, $success),
+		),
+	),
+	'danger': (
+		'default': (
+			$danger,
+			func.invert($danger),
+		),
+		'light': (
+			$danger-light,
+			func.invert($danger-light, $danger),
+		),
+	),
+	'info': (
+		'default': (
+			$info,
+			func.invert($info),
+		),
+		'light': (
+			$info-light,
+			func.invert($info-light, $info),
+		),
+	),
+	'warning': (
+		'default': (
+			$warning,
+			func.invert($warning),
+		),
+		'light': (
+			$warning-light,
+			func.invert($warning-light, $warning),
+		),
+	),
+	'light': (
+		'default': (
+			$light,
+			$dark,
+		),
+	),
+	'dark': (
+		'default': (
+			$dark,
+			$light,
+		),
+	),
+);
+
+$main-palette: map.merge($main-palette, $custom-palette);

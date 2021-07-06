@@ -1,0 +1,70 @@
+@use "../abstract/variables/" as *;
+@use "../abstract/functions" as func;
+
+.has-input {
+    position: relative;
+    margin: 0.25em;
+
+    .input {
+        &.with-addon-left {
+            padding-left: 2.5em;
+        }
+
+        &.with-addon-right {
+            padding-right: 2.5em;
+        }
+    }
+
+    // grouping common values
+    .is-addon-left,
+    .is-addon-right {
+        pointer-events: none;
+        padding: 0.5em 0.5em;
+
+        background-color: transparent;
+
+        position: absolute;
+        margin: 0;
+
+        top: 0;
+        bottom: 0;
+    }
+
+    .is-addon-right {
+        right: 0;
+    }
+
+    .is-addon-left {
+        left: 0;
+    }
+}
+
+.input {
+    border-radius: 5px;
+    border: 2px solid $gray-300;
+    background-color: $light;
+    color: $gray-900;
+
+    box-sizing: border-box;
+    outline: none;
+    padding: 0.5em 1em;
+
+    width: 100%;
+
+    &:focus {
+        border-color: $gray-600;
+    }
+
+    @each $clr, $modifier in $main-palette {
+        @each $name, $pair in $modifier {
+            $bg-clr: nth($pair, 1);
+            $text-clr: nth($pair, 2);
+
+            $is-modifier: if($name == 'default', false, true);
+
+            &.is-#{$clr}#{if(not $is-modifier, '', #{'.is-#{$name}'})} {
+                border-color: $bg-clr;
+            }
+        }
+    }
+}

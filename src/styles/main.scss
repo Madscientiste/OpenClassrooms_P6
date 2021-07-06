@@ -1,2 +1,12 @@
-@use "./base";
-@use "./components";
+@use "base";
+@use "layout";
+@use "components";
+
+
+.clr {
+    background-color: salmon;
+}
+
+.clr-2 {
+    background-color: lightblue;
+}

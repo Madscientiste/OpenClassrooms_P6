@@ -1,0 +1,143 @@
+@use "../abstract/variables" as *;
+@use "../abstract/mixins" as *;
+
+.modal-container {
+    position: absolute;
+    background-color: #0e0f14;
+    z-index: 100;
+    
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    height: 180vh;
+}
+
+.modal {
+    .modal-banner {
+        contain: strict;
+        height: 200px;
+
+        .banner-image {
+            width: 100%;
+
+            transform: translatey(-35%);
+            object-fit: cover;
+
+            /* Add the blur effect */
+            filter: blur(6px);
+            -webkit-filter: blur(6px);
+        }
+    }
+
+    &:first-child {
+        background-color: #1e202a;
+        border-radius: 0 0 $radius $radius;
+    }
+
+    .modal-header {
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        align-items: end;
+
+        .wrapper {
+            flex: 0 1 25%;
+
+            min-width: 120px;
+            max-width: 200px;
+
+            position: relative;
+            display: flex;
+
+            .header-cover {
+                flex: 0 1 100%;
+                width: 100%;
+                margin-top: -120px;
+
+                @include tablet {
+                    margin-top: -150px;
+                }
+
+                .cover-image {
+                    border-radius: $radius;
+                    display: block;
+
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+
+        .movie-meta {
+            flex-grow: 1;
+
+            height: 100%;
+            color: $light;
+
+            .tag {
+                margin: 0.5em 0em 0em 0.5em;
+                display: flex;
+                justify-content: center;
+            }
+        }
+
+        .header-title {
+            margin: 0.5em 0 0.5em 0;
+            flex: 100%;
+
+            @include tablet {
+                font-size: x-large;
+            }
+
+            font-size: $size-6;
+            font-weight: $weight-semibold;
+        }
+    }
+}
+
+.is-warning {
+    color: $warning;
+}
+
+.has-rows {
+    display: flex;
+    flex-direction: row;
+}
+
+.has-columns {
+    display: flex;
+    flex-direction: column;
+}
+
+.tablet-has-column {
+    @include tablet {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.tablet-has-rows {
+    @include tablet {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+.movie-details {
+    .container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        section {
+            flex: 1 1 max-content;
+            padding: 0.5em;
+        }
+    }
+}

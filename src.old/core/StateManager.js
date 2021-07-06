@@ -1,4 +1,4 @@
-import Observer from "./lib/observer"
+import Observer from "../../src/core/Observer"
 
 // Creating a independent class for reusability
 const STATES_UPDATE = "state_update"

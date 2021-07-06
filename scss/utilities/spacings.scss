@@ -1,0 +1,51 @@
+$spacing-horizontal: 'x' !default;
+$spacing-vertical: 'y' !default;
+
+$spacing-shortcuts: (
+    'margin': 'm',
+    'padding': 'p',
+) !default;
+
+$spacing-directions: (
+    'top': 't',
+    'right': 'r',
+    'bottom': 'b',
+    'left': 'l',
+) !default;
+
+$spacing-multiplicator: 0.125rem !default;
+$spacing-times: 25 !default;
+
+@each $property, $shortcut in $spacing-shortcuts {
+    @for $i from 0 through $spacing-times {
+        $value: $i * $spacing-multiplicator;
+
+        // All directions
+        .#{$shortcut}-#{$i} {
+            #{$property}: $value !important;
+        }
+
+        // Cardinal directions
+        @each $direction, $suffix in $spacing-directions {
+            .#{$shortcut}#{$suffix}-#{$i} {
+                #{$property}-#{$direction}: $value !important;
+            }
+        }
+
+        // Horizontal axis
+        @if $spacing-horizontal !=null {
+            .#{$shortcut}#{$spacing-horizontal}-#{$i} {
+                #{$property}-left: $value !important;
+                #{$property}-right: $value !important;
+            }
+        }
+
+        // Vertical axis
+        @if $spacing-vertical !=null {
+            .#{$shortcut}#{$spacing-vertical}-#{$i} {
+                #{$property}-top: $value !important;
+                #{$property}-bottom: $value !important;
+            }
+        }
+    }
+}

@@ -1,0 +1,30 @@
+@use "sass:math";
+@use "sass:list";
+
+@use "../abstract/variables" as *;
+@use "../abstract/functions" as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+$text-sizes: ($text-size-1, $text-size-2, $text-size-3, $text-size-4, $text-size-5, $text-size-6) !default;
+
+@each $size in $text-sizes {
+    $index: list.index($text-sizes, $size);
+
+    .as-h#{$index},
+    h#{$index} {
+        margin-bottom: $space-8;
+        font-size: $size;
+        font-weight: $weight-semibold;
+    }
+}
+
+@each $size in $text-sizes {
+    $index: list.index($text-sizes, $size);
+
+    .is-size-#{$index} {
+        margin-bottom: $space-8;
+        font-size: $size;
+        font-weight: $weight-light;
+    }
+}

@@ -1,0 +1,116 @@
+@use "../abstract/variables" as *;
+@use "../abstract/functions" as func;
+
+$button-sizes: ();
+$button-sizes: (
+    'xs': 0.7em,
+    'sm': 0.85em,
+    'md': 1em,
+    'lg': 1.25em,
+    'xl': 1.5em,
+);
+
+.button {
+    position: relative;
+    display: inline-block;
+
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box; /* Firefox, other Gecko */
+    box-sizing: border-box; /* Opera/IE 8+ */
+
+    border: 2px solid transparent;
+    border-radius: 5px;
+
+    padding: 0.5em 1em;
+    margin: $space-8 $space-8 $space-8 0;
+
+    font-weight: $weight-normal;
+    color: $dark;
+
+    vertical-align: baseline;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.9;
+    }
+
+    &:active {
+        opacity: 0.7;
+    }
+
+    @each $clr, $modifier in $main-palette {
+        @each $name, $pair in $modifier {
+            $bg-clr: nth($pair, 1);
+            $text-clr: nth($pair, 2);
+
+            $is-modifier: if($name == 'default', false, true);
+
+            $is-light: if($clr == 'light', true, false);
+            $is-dark: if($clr == 'dark', true, false);
+            $is-inverted: if($clr == 'inverted', true, false);
+
+            &.is-#{$clr}#{if(not $is-modifier, '', #{'.is-#{$name}'})} {
+                background-color: $bg-clr;
+                color: $text-clr;
+
+                @if $is-light {
+                    border-color: none;
+                    font-weight: $weight-normal;
+                }
+
+                &.is-inverted {
+                    background-color: transparent;
+                    color: $bg-clr;
+                }
+
+                &.is-outline {
+                    background-color: unset;
+                    color: $bg-clr;
+                    border: 2px solid $bg-clr;
+
+                    &:not([disabled]):hover {
+                        background-color: $bg-clr;
+                        color: $text-clr;
+                    }
+                }
+            }
+        }
+    }
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    @each $size-name, $size in $button-sizes {
+        &.size-#{$size-name} {
+            font-size: $size;
+        }
+    }
+
+    &.with-icon {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+
+        &.vertical {
+            flex-direction: column;
+        }
+
+        &.is-left {
+            flex-direction: row-reverse;
+            .icon {
+                margin-right: $space-7;
+            }
+        }
+
+        &.is-right {
+            flex-direction: row;
+            .icon {
+                margin-left: $space-7;
+            }
+        }
+    }
+}

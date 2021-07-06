@@ -1,0 +1,15 @@
+@use "../abstract/variables/" as *;
+
+.sidebar {
+    display: flex;
+    justify-content: center;
+
+    height: 100vh;
+
+    .sidebar-title {
+        font-size: $text-size-3;
+        font-weight: $weight-normal;
+        
+
+    }
+}

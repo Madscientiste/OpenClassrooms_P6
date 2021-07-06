@@ -1,4 +1,4 @@
-@use "../abstract/variables" as *;
+@use "../abstract/variables/layout" as *;
 
 @mixin breakpoint($name) {
     $width: map-get($breakpoints, $name);

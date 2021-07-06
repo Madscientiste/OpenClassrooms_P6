@@ -1,0 +1,40 @@
+@use "../abstract/variables" as *;
+
+.navbar {
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+
+	display: flex;
+	position: relative;
+	justify-content: flex-start;
+
+	.navbar-item {
+		&.brand {
+			width: 150px;
+		}
+	}
+
+	// can be tweaked further with flex shrink/grow
+	.navbar-group {
+		display: inherit;
+		align-items: center;
+		flex: 1 1 33.33%;
+
+		&.is-aligned-right {
+			justify-content: flex-end;
+		}
+
+		&.is-aligned-left {
+			justify-content: flex-start;
+		}
+
+		&.is-aligned-center {
+			justify-content: center;
+		}
+	}
+
+	// reset
+	.button {
+		margin: 0em;
+	}
+}
