@@ -1,0 +1,9 @@
+.hide-overflow {
+    overflow: hidden;
+}
+
+.line-clamp-9 {
+    display: -webkit-box;
+    -webkit-line-clamp: 9;
+    -webkit-box-orient: vertical;
+}

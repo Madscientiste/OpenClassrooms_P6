@@ -1,0 +1,15 @@
+@use "../abstract/variables" as *;
+
+.navbar {
+    display: flex;
+    justify-content: center;
+
+    .nav-item {
+        padding: 0.25em;
+
+        &.brand {
+            font-weight: 700;
+            font-size: $text-size-3;
+        }
+    }
+}

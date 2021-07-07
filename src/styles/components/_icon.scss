@@ -1,15 +1,22 @@
 @use "../abstract/variables" as *;
 
-$icon-size: 8px * 3 !default;
+$icon-size: 8px * 2 !default;
 
 .icon {
     font-size: $text-base-size;
-    position: relative;
-    display: inline-block;
-
-    text-align: center;
-    vertical-align: middle;
-
     width: $icon-size;
     height: $icon-size;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    @each $name, $clrs in $main-colors {
+        $background: nth($clrs, 1);
+        $color: nth($clrs, 2);
+
+        &.is-#{$name} {
+            color: $background;
+        }
+    }
 }
