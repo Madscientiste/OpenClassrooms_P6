@@ -5,3 +5,16 @@
 h1 {
     font-size: $text-size-1;
 }
+
+.title {
+    font-size: $text-size-4;
+    font-weight: 600;
+}
+
+.sub-title {
+    font-size: $text-size-5;
+}
+
+.text-center {
+    text-align: center;
+}

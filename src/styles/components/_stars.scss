@@ -1,0 +1,47 @@
+@use "../abstract/variables" as *;
+
+@import url(https://use.fontawesome.com/releases/v5.0.8/css/all.css);
+
+.stars {
+    font-size: $text-size-5;
+    display: flex;
+    padding: 0.25em;
+    background-color: $black;
+    border-top-right-radius: $radius;
+
+    .rating {
+        font-size: $text-size-5;
+        display: flex;
+        align-items: center;
+        margin-left: 0.25em;
+    }
+
+    .outer {
+        position: relative;
+        display: inline-block;
+
+        .inner {
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0;
+
+            &::before {
+                content: '\f005 \f005 \f005 \f005 \f005';
+                font-family: 'Font Awesome 5 Free';
+                font-weight: 900;
+                color: $warning;
+            }
+        }
+
+        &::before {
+            content: '\f005 \f005 \f005 \f005 \f005';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            color: $black-lighter;
+        }
+    }
+}

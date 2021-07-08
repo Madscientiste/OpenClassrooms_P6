@@ -4,6 +4,27 @@ html {
     min-width: 350px;
     font-size: $text-base-size;
     font-family: $font-primary;
+
+    // scrollbar
+    scrollbar-width: thin;
+    scrollbar-color: $black-lighter transparent;
+
+    ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: $black-lighter;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: lighten($black-lighter, 10%);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: lighten($black-lighter, 35%);
+    }
 }
 
 body {

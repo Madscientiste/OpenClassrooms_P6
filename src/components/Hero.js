@@ -12,8 +12,8 @@ export default class Hero extends BaseComponent {
                 </div>
 
                 <div style={{ margin: '0.5em' }} className="grid-item span-col-1 is-grid grid-gap-s cols-12">
-                    <div style={{ height: "275px" }} className="grid-item span-col-4 s-span-col-3 m-span-col-2">
-                        <div className="image as-cover">
+                    <div style={{ height: "300px" }} className="grid-item span-col-4 s-span-col-3 m-span-col-2">
+                        <div className="image as-cover span-row-3">
                             <img src="https://cdn.myanimelist.net/images/anime/1013/113747.jpg" alt="UwU" />
                         </div>
                     </div>
@@ -34,14 +34,15 @@ export default class Hero extends BaseComponent {
                             </button>
 
                             <button className="button with-icon is-left">
-                                4.2
+                                6.92
                                 <span className="icon is-warning">
                                     <i className="fas fa-star"></i>
                                 </span>
                             </button>
                         </div>
-
                     </div>
+
+                    <div className="title span-col-12">Kanojo mo Kanojo</div>
                 </div>
             </div >
         )

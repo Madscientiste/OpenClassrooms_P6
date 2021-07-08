@@ -10,7 +10,6 @@ $grid-gap: (
 
 .is-grid {
     display: grid;
-    grid-auto-columns: auto;
 
     @for $i from 0 through 12 {
         .span-col-#{$i} {

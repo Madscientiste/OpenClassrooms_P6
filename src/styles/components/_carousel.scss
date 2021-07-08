@@ -1,0 +1,48 @@
+@use "../abstract/variables" as *;
+
+.carousel-container {
+    position: relative;
+
+    .carousel-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .carousel-controller {
+            .button {
+                margin-left: 0.5em;
+                height: 30px;
+
+                background-color: lighten($black, 15%);
+            }
+        }
+    }
+
+    .carousel-body {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+
+        .wrapper {
+            display: grid;
+            transition: all 0.8s;
+
+            grid-template-columns: repeat(12, 1fr);
+            grid-auto-flow: column;
+
+            .carousel-item {
+                padding: 0.5em;
+
+                display: grid;
+                grid-template-rows: 5fr 1fr;
+                width: 170px;
+                height: 280px;
+
+                .image {
+                    pointer-events: none;
+                    user-select: none;
+                }
+            }
+        }
+    }
+}
