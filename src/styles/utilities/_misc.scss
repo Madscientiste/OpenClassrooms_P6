@@ -1,3 +1,5 @@
+@use "../abstract/variables" as *;
+
 $contain: (none, strict, content, size, layout, style, paint);
 
 @each $name in $contain {

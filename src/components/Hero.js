@@ -14,7 +14,7 @@ export default class Hero extends BaseComponent {
                 <div className="container is-large grid-item span-col-1 ">
                     <div style={{ margin: '0.5em' }} className="is-grid grid-gap-s cols-12">
                         <div className="grid-item span-col-4 s-span-col-3 m-span-col-2">
-                            <div className="image as-cover is-1by7 span-row-3">
+                            <div className="image as-cover is-5by7 span-row-3">
                                 <img src="https://cdn.myanimelist.net/images/anime/1013/113747.jpg" alt="UwU" />
                             </div>
                         </div>

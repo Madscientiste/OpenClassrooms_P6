@@ -56,7 +56,9 @@ export default class App extends BaseComponent {
             <>
                 <Navbar />
 
-                <h2>Top Movie</h2>
+                <div className="container is-large">
+                    <h2>Top Movie</h2>
+                </div>
                 <Hero />
 
                 <div className="container is-large">

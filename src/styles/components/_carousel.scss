@@ -19,11 +19,16 @@
     }
 
     .carousel-body {
+        position: relative;
+
         height: 100%;
         width: 100%;
         overflow: hidden;
 
         .wrapper {
+            position: relative;
+            will-change: transform;
+
             display: grid;
             transition: all 0s;
 
