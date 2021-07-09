@@ -15,7 +15,7 @@ export default class BaseComponent {
 
         this.hasRendered()
 
-        if (root) root.replaceWith(this.element)
+        if (root) root.replaceChildren(this.element)
         return this.element
     }
 }

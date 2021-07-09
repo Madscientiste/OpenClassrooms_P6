@@ -4,7 +4,6 @@ const STATES_UPDATE = "state_update"
 
 // for some reason i can't instansiate a new observer in the class
 const observer = new Observer()
-
 export default class StateManager {
     constructor(initialState, onChange = () => null) {
         this.state = initialState
@@ -13,8 +12,7 @@ export default class StateManager {
 
     setState(partialState) {
         Object.assign(this.state, partialState)
-        observer.publish(STATES_UPDATE, this.state);
-
+        observer.publish(STATES_UPDATE, { state: this.state, setState: this.setState });
         return this.state
     }
 }

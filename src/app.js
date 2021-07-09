@@ -8,6 +8,8 @@ import Carousel from "./components/Carousel"
 export default class App extends BaseComponent {
 
     render() {
+        let { movies, categories } = this.props.state
+
         let items = [
             {
                 title: "Kobayashi-san Chi no Maid Dragon",
@@ -52,6 +54,8 @@ export default class App extends BaseComponent {
 
         ]
 
+        if (!movies.length) return <div>Loading</div>
+        console.log(categories)
         return (
             <>
                 <Navbar />
@@ -59,13 +63,16 @@ export default class App extends BaseComponent {
                 <div className="container is-large">
                     <h2>Top Movie</h2>
                 </div>
-                <Hero />
+
+                <Hero {...movies.shift()} />
 
                 <div className="container is-large">
                     <section>
-                        <Carousel items={items} />
-                        <Carousel items={items} />
-                        <Carousel items={items} />
+                        <Carousel items={movies} />
+
+                        {categories.map(cat => {
+                            return <Carousel items={cat.items} />
+                        })}
                     </section>
                 </div>
             </>

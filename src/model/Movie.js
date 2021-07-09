@@ -1,3 +1,4 @@
+import axios from "axios"
 import api from "../functions/api";
 import resolver from "../functions/resolver";
 
@@ -34,7 +35,7 @@ class Movie {
     }
 
     async resolve() {
-        let [data, error] = await resolver(instance.get, ["/titles/" + this.id])
+        let [data, error] = await resolver(api.get, ["/titles/" + this.id])
         if (error) throw Error("Couldn't resolve the movie, please check if the server is running or if the url of the api is correct", error)
 
         Object.assign(this, data)
@@ -44,19 +45,20 @@ class Movie {
 }
 
 Movie.filterBy = async function (params) {
-    // getting 10 items ~ since each call == 5 items 
+    // getting 15 items ~ since each call == 5 items 
     // would have been better if the API would let me ask more than 5items ... but whatever
-    let [data, error] = await resolver(instance.get, ["/titles", { params }])
-    let [data1, error1] = await resolver(axios.get, [data.next])
-    let [data2, error2] = await resolver(axios.get, [data.next])
+    let [data, error] = await resolver(api.get, ["/titles", { params }])
+    if (error) throw Error("Couldn't filter the movies, please check if the server is running or if the url of the api is correct")
 
-    let movies = [...data.results, ...data1.results, ...data2.results]
+    let [data1, error1] = await resolver(axios.get, [data.next])
+    let [data2, error2] = await resolver(axios.get, [data1.next])
+    let [data3, error3] = await resolver(axios.get, [data2.next])
+
+    let movies = [...data.results, ...data1.results, ...data2.results, ...data3.results]
     const movID = [...new Set(movies.map(m => m.id))]
 
     //removing duplicates
     movies = movID.map(id => movies.find((m) => m.id == id))
-
-    if (error) throw Error("Couldn't filter the movies, please check if the server is running or if the url of the api is correct")
 
     return await Promise.all(
         movies.map(async data => {

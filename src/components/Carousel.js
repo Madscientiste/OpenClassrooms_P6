@@ -234,13 +234,13 @@ export default class Carousel extends BaseComponent {
     }
 }
 
-Carousel.Item = function ({ image_url, title, rating }) {
+Carousel.Item = function ({ image_url, title, imdb_score }) {
     return (
         <div className="carousel-item">
             <div className="image as-cover has-overlay">
                 <div className="overlay">
                     <div className="bottom-left">
-                        <Stars rating={rating} />
+                        <Stars rating={imdb_score} />
                     </div>
                 </div>
 
