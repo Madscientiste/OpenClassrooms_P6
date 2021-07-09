@@ -5,15 +5,17 @@ export default class BaseComponent {
         this.element = null
     }
 
-    willMount() { }
+    willRender() { }
+    hasRendered() { }
     render() { }
 
     mount(root) {
-        this.willMount()
-        let element = this.render()
-        this.element = element
+        this.willRender()
+        this.element = this.render()
 
-        root ? root.replaceWith(element) : null
-        return element
+        this.hasRendered()
+
+        if (root) root.replaceWith(this.element)
+        return this.element
     }
 }

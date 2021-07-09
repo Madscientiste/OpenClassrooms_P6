@@ -1,5 +1,4 @@
 import "./styles/main.scss";
-
 import './core/JSXParser'
 
 import App from "./app";
