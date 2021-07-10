@@ -38,7 +38,7 @@ export default class Hero extends BaseComponent {
                                 </button>
 
                                 <button className="button with-icon is-left">
-                                    {parseInt(imdb_score) / 2}
+                                    {Number(imdb_score) / 2}
                                     <span className="icon is-warning">
                                         <i className="fas fa-star"></i>
                                     </span>

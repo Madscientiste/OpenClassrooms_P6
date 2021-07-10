@@ -56,7 +56,7 @@ export default class Modal extends BaseComponent {
                                     </div>
 
                                     <div className="tag with-icon is-left is-fullwidth bg-black">
-                                        {parseInt(props.imdb_score) / 2}
+                                        {Number(props.imdb_score) / 2}
                                         <span className="icon is-warning">
                                             <i className="fas fa-star"></i>
                                         </span>
