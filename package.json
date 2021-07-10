@@ -35,5 +35,15 @@
     "license": "ISC",
     "dependencies": {
         "axios": "^0.21.1"
-    }
+    },
+    "main": "webpack.config.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Madscientiste/P6_openclassrooms.git"
+    },
+    "keywords": [],
+    "bugs": {
+        "url": "https://github.com/Madscientiste/P6_openclassrooms/issues"
+    },
+    "homepage": "https://github.com/Madscientiste/P6_openclassrooms#readme"
 }
