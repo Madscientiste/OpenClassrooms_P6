@@ -1,0 +1,9 @@
+@use "../abstract/variables" as *;
+
+.bg-black {
+    background-color: $black;
+}
+
+.bg-black-ligher {
+    background-color: $black-lighter;
+}

@@ -8,6 +8,7 @@ $grid-gap: (
     'xl': 1.5em,
 );
 
+// need to organize it, but for now it does it job
 .is-grid {
     display: grid;
 
@@ -19,6 +20,22 @@ $grid-gap: (
             grid-row: span $i + 1;
         }
 
+        .start-col-#{$i} {
+            grid-column-start: $i;
+        }
+
+        .end-col-#{$i} {
+            grid-column-end: $i;
+        }
+
+        .start-row-#{$i} {
+            grid-row-start: $i;
+        }
+
+        .end-row-#{$i} {
+            grid-row-end: $i;
+        }
+
         &.cols-#{$i} {
             grid-template-columns: repeat($i, 1fr);
         }
@@ -26,6 +43,10 @@ $grid-gap: (
         &.rows-#{$i} {
             grid-template-rows: repeat($i, 1fr);
         }
+    }
+
+    .end-col {
+        grid-column-end: 13;
     }
 
     @each $name, $gap-size in $grid-gap {
@@ -46,6 +67,22 @@ $grid-gap: (
 
                 .#{$name}-span-row-#{$i} {
                     grid-column: span $i + 1;
+                }
+
+                .#{$name}-start-col-#{$i} {
+                    grid-column-start: $i;
+                }
+
+                .#{$name}-end-col-#{$i} {
+                    grid-column-end: $i;
+                }
+
+                .#{$name}-start-row-#{$i} {
+                    grid-row-start: $i;
+                }
+
+                .#{$name}-end-row-#{$i} {
+                    grid-row-end: $i;
                 }
 
                 &.#{$name}-cols-#{$i} {

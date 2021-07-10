@@ -45,6 +45,8 @@
 
             .carousel-item {
                 padding: 0.5em;
+                transition: none;
+                border-radius: $radius;
 
                 display: grid;
                 grid-template-rows: 5fr 1fr;
@@ -54,6 +56,10 @@
                 .image {
                     pointer-events: none;
                     user-select: none;
+                }
+
+                &:hover {
+                    box-shadow: inset 0px 0px 0px 1px rgba(245, 245, 245, 0.1);
                 }
             }
         }

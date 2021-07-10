@@ -6,6 +6,7 @@ export default class Carousel extends BaseComponent {
     state = {
         index: 0,
         mouseDown: false,
+        hasMoved: false,
         startPosX: null,
         lastPos: { x: null, y: null },
         block: null,
@@ -106,6 +107,8 @@ export default class Carousel extends BaseComponent {
     // mouse users
     handleMouseMove(e) {
         if (!this.state.mouseDown) return;
+        this.state.hasMoved = true
+
         e.stopPropagation();
         e.preventDefault();
 
@@ -136,6 +139,7 @@ export default class Carousel extends BaseComponent {
         e.preventDefault();
 
         this.state.mouseDown = false;
+        this.state.hasMoved = false
 
         let { body, wrapper, items } = this.getCurrentParent();
         let { width } = wrapper.getBoundingClientRect();
@@ -192,11 +196,16 @@ export default class Carousel extends BaseComponent {
         };
     }
 
+    handleOpenModal(item) {
+        if (this.state.hasMoved) return
+        state.setState({ modal: item })
+    }
+
     render() {
         return (
             <div className="carousel-container">
-                <div className="carousel-header">
-                    <h3>Best Rated Movies</h3>
+                <div className="carousel-header px-2">
+                    <h3>{this.props.title}</h3>
                     <div className="carousel-controller">
                         <button onclick={(e) => this.handleBtnLeft(e)} className="button with-icon">
                             <span className="icon">
@@ -224,8 +233,25 @@ export default class Carousel extends BaseComponent {
                         ontransitionend={(e) => this.handleTransition(e)}
                         className="wrapper"
                     >
-                        {this.props.items.map((e) => {
-                            return <Carousel.Item {...e} />;
+                        {this.props.items.map((item) => {
+                            let { image_url, title, imdb_score } = item
+
+                            return (
+                                <div
+                                    onmouseup={() => this.handleOpenModal(item)}
+                                    className="carousel-item">
+                                    <div className="image as-cover has-overlay">
+                                        <div className="overlay">
+                                            <div className="bottom-left">
+                                                <Stars rating={imdb_score} />
+                                            </div>
+                                        </div>
+
+                                        <img src={image_url} alt="UwU" />
+                                    </div>
+                                    <div className="text-as-h5 text-center">{title}</div>
+                                </div>
+                            )
                         })}
                     </div>
                 </div>
@@ -233,20 +259,3 @@ export default class Carousel extends BaseComponent {
         );
     }
 }
-
-Carousel.Item = function ({ image_url, title, imdb_score }) {
-    return (
-        <div className="carousel-item">
-            <div className="image as-cover has-overlay">
-                <div className="overlay">
-                    <div className="bottom-left">
-                        <Stars rating={imdb_score} />
-                    </div>
-                </div>
-
-                <img src={image_url} alt="UwU" />
-            </div>
-            <div className="sub-title text-center">{title}</div>
-        </div>
-    );
-};

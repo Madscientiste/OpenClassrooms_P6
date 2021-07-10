@@ -33,6 +33,14 @@
     text-decoration: none;
     cursor: pointer;
 
+    &.is-solid {
+        background-color: lighten($black, 10%);
+    }
+
+    &.is-borderless {
+        border: none;
+    }
+
     &:hover {
         opacity: 0.9;
     }
@@ -45,6 +53,8 @@
         display: inline-flex;
         justify-content: center;
         align-items: center;
+
+        padding: 0.75em;
 
         &.vertical {
             flex-direction: column;

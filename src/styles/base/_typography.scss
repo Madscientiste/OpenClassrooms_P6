@@ -2,17 +2,39 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+.text-as-h1,
 h1 {
     font-size: $text-size-1;
 }
 
-.title {
+.text-as-h2,
+h2 {
+    font-size: $text-size-2;
+}
+
+.text-as-h3,
+h3 {
+    font-size: $text-size-3;
+}
+
+.text-as-h4,
+h4 {
     font-size: $text-size-4;
+}
+
+.text-as-h5,
+h5 {
+    font-size: $text-size-5;
+}
+
+.title {
+    font-size: $text-size-3;
     font-weight: 600;
 }
 
 .sub-title {
-    font-size: $text-size-5;
+    font-size: $text-size-4;
+    font-weight: 600;
 }
 
 .text-center {

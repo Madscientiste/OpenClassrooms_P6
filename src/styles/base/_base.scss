@@ -4,7 +4,8 @@ html {
     min-width: 350px;
     font-size: $text-base-size;
     font-family: $font-primary;
-
+    scroll-behavior: smooth;
+    
     // scrollbar
     scrollbar-width: thin;
     scrollbar-color: $black-lighter transparent;
@@ -28,6 +29,8 @@ html {
 }
 
 body {
+    min-width: 350px;
+
     background-color: $black;
     color: $gray-lighter;
 }

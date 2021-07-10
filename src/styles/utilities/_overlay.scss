@@ -5,77 +5,86 @@ $posX: ('left', 'right');
 
 .has-overlay {
     position: relative;
+}
 
-    .overlay {
-        position: absolute;
-        pointer-events: none;
+.is-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
 
-        width: 100%;
+    z-index: 10;
+
+    .is-fullheight {
         height: 100%;
+    }
+}
 
-        z-index: 1;
+.overlay {
+    position: absolute;
+    pointer-events: none;
 
-        & > * {
-            pointer-events: auto;
-            width: max-content;
-            position: absolute;
-        }
+    width: 100%;
+    height: 100%;
 
-        .top {
-            z-index: 3;
-            left: 50%;
-            text-align: center;
-            transform: translateX(-50%);
-        }
+    z-index: 1;
 
-        .top-left {
-            top: 0;
-            left: 0;
-        }
+    & > * {
+        pointer-events: auto;
+        width: max-content;
+        position: absolute;
+    }
 
-        .top-right {
-            top: 0;
-            right: 0;
-        }
+    .top {
+        left: 50%;
+        text-align: center;
+        transform: translateX(-50%);
+    }
 
-        .center {
-            z-index: 3;
-            top: 50%;
-            left: 50%;
+    .top-left {
+        top: 0;
+        left: 0;
+    }
 
-            text-align: center;
-            transform: translate(-50%, -50%);
-        }
+    .top-right {
+        top: 0;
+        right: 0;
+    }
 
-        .center-left {
-            transform: translateY(-50%);
-            top: 50%;
-            left: 0;
-        }
+    .center {
+        top: 50%;
+        left: 50%;
 
-        .center-right {
-            transform: translateY(-50%);
-            top: 50%;
-            right: 0;
-        }
+        text-align: center;
+        transform: translate(-50%, -50%);
+    }
 
-        .bottom {
-            z-index: 3;
-            bottom: 0;
-            left: 50%;
+    .center-left {
+        transform: translateY(-50%);
+        top: 50%;
+        left: 0;
+    }
 
-            text-align: center;
-            transform: translateX(-50%);
-        }
+    .center-right {
+        transform: translateY(-50%);
+        top: 50%;
+        right: 0;
+    }
 
-        .bottom-left {
-            bottom: 0;
-            left: 0;
-        }
+    .bottom {
+        bottom: 0;
+        left: 50%;
 
-        .bottom-right {
-            bottom: 0;
-            right: 0;
-        }
+        text-align: center;
+        transform: translateX(-50%);
+    }
+
+    .bottom-left {
+        bottom: 0;
+        left: 0;
+    }
+
+    .bottom-right {
+        bottom: 0;
+        right: 0;
     }
 }

@@ -4,12 +4,12 @@
     flex-grow: 1;
     margin: 0 auto;
     position: relative;
-    width: auto;
+    width: 100%;
 
     &.is-medium {
         max-width: 680px;
     }
-    
+
     &.is-large {
         max-width: 1125px;
     }

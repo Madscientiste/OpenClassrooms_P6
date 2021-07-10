@@ -1,8 +1,11 @@
 import BaseComponent from "./Base"
-
 export default class Hero extends BaseComponent {
+    showModal() {
+        state.setState({ modal: this.props.movie })
+    }
+
     render() {
-        let { image_url, title, description, imdb_score } = this.props
+        let { image_url, title, description, imdb_score } = this.props.movie
 
         return (
             <div className="is-grid cols-2 contain-content">
@@ -13,8 +16,8 @@ export default class Hero extends BaseComponent {
                     </div>
                 </div>
 
-                <div className="container is-large grid-item span-col-1 ">
-                    <div style={{ margin: '0.5em' }} className="is-grid grid-gap-s cols-12">
+                <div className="container is-large grid-item span-col-1">
+                    <div className="is-grid grid-gap-s cols-12 p-2">
                         <div className="grid-item span-col-4 s-span-col-3 m-span-col-2">
                             <div className="image as-cover is-5by7 span-row-3">
                                 <img src={image_url} alt="UwU" />
@@ -27,7 +30,7 @@ export default class Hero extends BaseComponent {
                             </p>
 
                             <div className="buttons">
-                                <button className="button with-icon is-left">
+                                <button onclick={() => this.showModal()} className="button with-icon is-left">
                                     More info
                                     <span className="icon is-info">
                                         <i className="fas fa-info-circle"></i>
@@ -35,7 +38,7 @@ export default class Hero extends BaseComponent {
                                 </button>
 
                                 <button className="button with-icon is-left">
-                                    {imdb_score}
+                                    {parseInt(imdb_score) / 2}
                                     <span className="icon is-warning">
                                         <i className="fas fa-star"></i>
                                     </span>
@@ -43,10 +46,12 @@ export default class Hero extends BaseComponent {
                             </div>
                         </div>
 
-                        <div className="title span-col-12">{title}</div>
+                        <div className="title span-col-11">{title}</div>
                     </div>
                 </div>
             </div >
         )
     }
 }
+
+

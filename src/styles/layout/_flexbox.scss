@@ -1,0 +1,11 @@
+@use "../abstract/variables/" as *;
+@use "../abstract/mixins" as *;
+
+
+.is-flex {
+    display: flex;
+
+    .flex-item {
+        
+    }
+}
