@@ -2,7 +2,7 @@
 
 @keyframes loader {
     0% {
-        transform: translate3d(-256px, 0, 0);
+        transform: translate3d(-128px, 0, 0);
     }
 
     50% {
@@ -10,7 +10,7 @@
     }
 
     100% {
-        transform: translate3d(256px, 0, 0);
+        transform: translate3d(128px, 0, 0);
     }
 }
 
@@ -34,7 +34,7 @@
         border-radius: 2.5px;
         content: '\000a0';
 
-        width: 256px;
+        width: 128px;
         height: 8px;
 
         margin-top: 64px;
@@ -47,7 +47,7 @@
         border-radius: 1px;
         content: '\000a0';
 
-        width: 128px;
+        width: 50px;
         height: 8px;
 
         margin-top: 64px;
