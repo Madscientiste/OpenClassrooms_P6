@@ -1,0 +1,63 @@
+@use "../abstract/variables" as *;
+
+@keyframes loader {
+    0% {
+        transform: translate3d(-256px, 0, 0);
+    }
+
+    50% {
+        transform: translate3d(0px, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(256px, 0, 0);
+    }
+}
+
+.loader {
+    overflow: hidden;
+    z-index: 20;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    font-weight: 700;
+    font-size: $text-size-4;
+
+    &::before {
+        position: absolute;
+
+        background: lighten($primary, 10%);
+        border-radius: 2.5px;
+        content: '\000a0';
+
+        width: 256px;
+        height: 8px;
+
+        margin-top: 64px;
+    }
+
+    &::after {
+        position: absolute;
+
+        background: $black;
+        border-radius: 1px;
+        content: '\000a0';
+
+        width: 128px;
+        height: 8px;
+
+        margin-top: 64px;
+
+        transform: translateX(-64px);
+
+        animation-name: loader;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+        animation-direction: foward;
+        animation-timing-function: linear;
+    }
+}

@@ -198,7 +198,8 @@ export default class Carousel extends BaseComponent {
 
     handleOpenModal(item) {
         if (this.state.hasMoved) return
-        state.setState({ modal: item })
+        state.setState({ modal: item, scrollX: document.documentElement.scrollTop })
+        window.scrollTo({ top: 0, left: 0 })
     }
 
     render() {
@@ -239,6 +240,7 @@ export default class Carousel extends BaseComponent {
                             return (
                                 <div
                                     onmouseup={() => this.handleOpenModal(item)}
+
                                     className="carousel-item">
                                     <div className="image as-cover has-overlay">
                                         <div className="overlay">

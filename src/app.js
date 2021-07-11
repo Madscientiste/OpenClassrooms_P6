@@ -5,12 +5,15 @@ import Hero from "./components/Hero"
 import Navbar from "./components/Navbar"
 import Carousel from "./components/Carousel"
 import Modal from "./components/Modal"
+import Loader from "./components/Loader"
 
 export default class App extends BaseComponent {
     render() {
         let { movies, categories, modal, isLoading } = this.props.state
 
-        if (isLoading) return <div>Loading</div>
+        if (isLoading) return <Loader />
+
+        // while i know it break the purpose of a "modal" but it avoid me a headache
         if (modal) return <Modal setState={this.props.setState} {...modal} />
 
         return (

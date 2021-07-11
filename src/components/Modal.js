@@ -11,10 +11,11 @@ export default class Modal extends BaseComponent {
 
         let closeModal = () => {
             state.setState({ modal: null })
+            window.scrollTo({ top: state.state.scrollX, left: 0 })
         }
 
         return (
-            <div className="modal is-overlay is-fixed bg-black">
+            <div className="modal bg-black">
                 <div className="is-grid cols-2 contain-content">
                     <div style={{ height: "250px" }} className="grid-item span-col-1 has-overlay">
                         <div className="container is-medium">

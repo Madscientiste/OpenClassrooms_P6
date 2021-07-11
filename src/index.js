@@ -8,11 +8,12 @@ import Movie from "./model/Movie";
 
 const root = document.getElementById('root')
 const state = new State({ movies: [], categories: [], modal: null, isLoading: true }, (props) => {
-    scrollTo(0, 0)
     root.replaceChildren(<App {...props} />)
+    root.scrollTo({ top: 5, left: 0, behavior: "smooth" })
 })
 
 window.state = state
+
 
 const app = new App({ state: state.state, setState: state.setState })
 app.mount(root)

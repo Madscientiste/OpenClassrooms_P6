@@ -1,7 +1,8 @@
 import BaseComponent from "./Base"
 export default class Hero extends BaseComponent {
     showModal() {
-        state.setState({ modal: this.props.movie })
+        state.setState({ modal: this.props.movie, scrollX: document.documentElement.scrollTop })
+        window.scrollTo({ top: 0, left: 0 })
     }
 
     render() {

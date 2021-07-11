@@ -2,6 +2,26 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+@mixin border-bottom($width: 40px) {
+    position: relative;
+    margin-bottom: 8px;
+
+    &::before {
+        background: linear-gradient(90deg, $primary 0%, lighten($primary, 10%) 100%);
+        border-radius: 2.5px;
+
+        content: '\000a0';
+        position: absolute;
+        width: $width;
+        height: 10px;
+
+        left: 0;
+        bottom: 0;
+
+        margin-bottom: -8px;
+    }
+}
+
 .text-as-h1,
 h1 {
     font-size: $text-size-1;
@@ -10,11 +30,14 @@ h1 {
 .text-as-h2,
 h2 {
     font-size: $text-size-2;
+    @include border-bottom(80px);
 }
 
 .text-as-h3,
 h3 {
     font-size: $text-size-3;
+
+    @include border-bottom();
 }
 
 .text-as-h4,
