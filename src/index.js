@@ -9,11 +9,9 @@ import Movie from "./model/Movie";
 const root = document.getElementById('root')
 const state = new State({ movies: [], categories: [], modal: null, isLoading: true }, (props) => {
     root.replaceChildren(<App {...props} />)
-    root.scrollTo()
 })
 
 window.state = state
-
 
 const app = new App({ state: state.state, setState: state.setState })
 app.mount(root)
@@ -31,7 +29,5 @@ window.onload = async (e) => {
 
     state.setState({ movies: bestMovies, isLoading: false, categories })
 }
-
-
 
 if (module.hot) module.hot.accept()

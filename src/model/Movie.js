@@ -44,7 +44,7 @@ class Movie {
 }
 
 Movie.filterBy = async function (params) {
-    // getting 25 items ~ since each call == 5 items 
+    // getting 15 items ~ since each call == 5 items 
     // would have been better if the API would let me ask more than 5items ... but whatever
     let [data, error] = await resolver(api.get, ["/titles", { params }])
     if (error) return console.error(error)
