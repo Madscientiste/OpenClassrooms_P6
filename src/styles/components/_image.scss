@@ -48,7 +48,7 @@ $ratio-list: ((1, 1), (2, 1), (3, 2), (16, 10), (5, 7));
     &.with-gradiant {
         .gradiant {
             display: block;
-            background: rgba(0, 0, 0, 0.685);
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.685) 0%, $black 100%);
 
             position: absolute;
             z-index: 1;

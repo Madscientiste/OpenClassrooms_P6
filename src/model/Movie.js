@@ -39,13 +39,12 @@ class Movie {
         if (error) throw Error("Couldn't resolve the movie, please check if the server is running or if the url of the api is correct", error)
 
         Object.assign(this, data)
-
         return this
     }
 }
 
 Movie.filterBy = async function (params) {
-    // getting 15 items ~ since each call == 5 items 
+    // getting 25 items ~ since each call == 5 items 
     // would have been better if the API would let me ask more than 5items ... but whatever
     let [data, error] = await resolver(api.get, ["/titles", { params }])
     if (error) return console.error(error)
@@ -53,6 +52,7 @@ Movie.filterBy = async function (params) {
     let [data1, error1] = await resolver(axios.get, [data.next])
     let [data2, error2] = await resolver(axios.get, [data1.next])
     let [data3, error3] = await resolver(axios.get, [data2.next])
+
 
     let movies = [...data.results, ...data1.results, ...data2.results, ...data3.results]
     const movID = [...new Set(movies.map(m => m.id))]

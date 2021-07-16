@@ -9,7 +9,7 @@ import Movie from "./model/Movie";
 const root = document.getElementById('root')
 const state = new State({ movies: [], categories: [], modal: null, isLoading: true }, (props) => {
     root.replaceChildren(<App {...props} />)
-    root.scrollTo({ top: 5, left: 0, behavior: "smooth" })
+    root.scrollTo()
 })
 
 window.state = state
@@ -22,8 +22,10 @@ window.onload = async (e) => {
     let bestMovies = await Movie.filterBy({ sort_by: "-imdb_score" })
 
     let categories = await Promise.all(
-        ["Action", "Adventure", "History"].map(async categorie => {
-            let items = await Movie.filterBy({ genre: categorie, sort_by: "-imdb_score" })
+        ["Animation", "Adventure", "History"].map(async categorie => {
+            let filter = { genre_contains: categorie, sort_by: "-imdb_score" }
+            let items = await Movie.filterBy(filter)
+
             return { title: categorie, items }
         }))
 
